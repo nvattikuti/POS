@@ -1,0 +1,151 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="PosClient.controller.CustomerBasicData" displayBlock="true" xmlns:m="sap.m"
+	xmlns="sap.uxap" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<m:Page showHeader="false">
+		<m:subHeader >
+			<m:Toolbar >
+				<m:Bar >
+					<m:contentLeft>
+						<m:Button icon="sap-icon://nav-back" press="onBackCustomerMaster"/>
+						<m:Title text="{CustomerBasicModel>/partner}-{CustomerBasicModel>/name_org}"/>
+					</m:contentLeft>
+					<!--<m:contentMiddle>-->
+						<!--<Title text="{i18n>warehouse}" class="lastRefreshedText toolbarbottamdesign warehouseFont" />-->
+						<!--<m:Title text="{i18n>customerData}"/>-->
+					<!--</m:contentMiddle>-->
+				</m:Bar>
+			</m:Toolbar>
+		</m:subHeader>
+		<ObjectPageLayout enableLazyLoading="false" alwaysShowContentHeader="false">
+			<!--<headerTitle>-->
+			<!--	<ObjectPageHeader objectTitle="Section sample"></ObjectPageHeader>-->
+			<!--</headerTitle>-->
+			<!--<headerContent>-->
+			<!--	<m:ObjectAttribute title="" text="This example explains the rules for the rendering of sections"/>-->
+			<!--</headerContent>-->
+			<sections>
+				<ObjectPageSection >
+					<subSections>
+						<ObjectPageSubSection title="{i18n>basicData}">
+							<blocks>
+								<f:SimpleForm  maxContainerCols="3"
+            editable="true"
+            layout="ResponsiveGridLayout"
+                labelSpanL="6"
+                labelSpanM="6"
+                emptySpanL="0"
+                emptySpanM="0"
+                columnsL="2"
+                columnsM="2">
+									<f:content>
+										<core:Title text=""/>
+										<!--<m:Label text="{i18n>customerNumber}"/>-->
+										<!--<m:Text text="{CustomerBasicModel>/partner}"/>-->
+										<!--<m:Label text="{i18n>customertype}"/>-->
+										<!--<m:Text  text="{CustomerBasicModel>/bpkind}"/>-->
+										<!--<m:Label text="{i18n>name1oforganization}"/>-->
+										<!--<m:Text  text="{CustomerBasicModel>/name_org}"/>-->
+										<!--<m:Label text="{i18n>street}"/>-->
+										<!--<m:Text  text="{CustomerBasicModel>/street}"/>-->
+										<m:Label text="{i18n>address}"/>
+										<m:Text  text="{CustomerBasicModel>/street}, {CustomerBasicModel>/city}"/>
+										<m:Label text="{i18n>citypostalcode}"/>
+										<m:Text  text="{CustomerBasicModel>/post_code}"/>
+										<!--<m:Label text="{i18n>city}"/>-->
+										<!--<m:Text text="{CustomerBasicModel>/city}"/>-->
+										<m:Label text="{i18n>countrykey}"/>
+										<m:Text text="{CustomerBasicModel>/country}"/>
+										<m:Label text="{i18n>emailaddress}"/>
+										<m:Text  text="{CustomerBasicModel>/e_mail}"/>
+										<core:Title text=""/>
+										<m:Label text="{i18n>cellphonenumber}"/>
+										<m:Text  text="{CustomerBasicModel>/mob_number}"/>
+										<m:Label text="{i18n>vatregistrationnumber}"/>
+										<m:Text  text="{CustomerBasicModel>/vat_id}"/>
+										<m:Label text="{i18n>physicalid}"/>
+										<m:Text  text="{CustomerBasicModel>/phyid}"/>
+										<m:Label text="{i18n>uniqueid}"/>
+										<m:Text text="{CustomerBasicModel>/uniid}"/>
+<!--										<core:Title text=""/>
+										<m:Label text="{i18n>internationalarticlenumber}"/>
+										<m:Text text="{CustomerBasicModel>/ersda}"/>
+										<m:Label text="{i18n>accountnumberofvendororcreditor}"/>
+										<m:Text  text="{CustomerBasicModel>/ersti}"/>
+										<m:Label text="{i18n>name}"/>
+										<m:Text  text="{CustomerBasicModel>/laeda}"/>
+										<m:Label text="{i18n>manufacturerpartnumber}"/>
+										<m:Text  text="{CustomerBasicModel>/laeti}"/>
+-->									</f:content>
+								</f:SimpleForm>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+				<ObjectPageSection >
+					<subSections>
+						<ObjectPageSubSection title="{i18n>customerGroupData}">
+							<blocks>
+								<m:Table class="posBlueTbl" inset="false" items="{ path: 'customerGrpDataModel>/items' }">
+									<m:columns>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>customerNumber}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>customerType}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>partnerNumber}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>shiptoPartyName}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>street}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>citypostalcode}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>city}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>countrykey}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>cellphonenumber}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>emailaddress}"/>
+										</m:Column>
+									</m:columns>
+									<m:items>
+										<m:ColumnListItem vAlign="Middle" press="onCustomerGrpDataPress" >
+											<m:cells>
+												<m:Text text="{customerGrpDataModel>partner}"/>
+												<m:Text text="{customerGrpDataModel>bpkind}"/>
+												<m:Text text="{customerGrpDataModel>shipto}"/>
+												<m:Text text="{customerGrpDataModel>name_org}"/>
+												<m:Text text="{customerGrpDataModel>street}"/>
+												<m:Text text="{customerGrpDataModel>post_code}"/>
+												<m:Text text="{customerGrpDataModel>city}"/>
+												<m:Text text="{customerGrpDataModel>country}"/>
+												<m:Text text="{customerGrpDataModel>mon_number}"/>
+												<m:Text text="{customerGrpDataModel>e_mail}"/>
+											</m:cells>
+										</m:ColumnListItem>
+									</m:items>
+								</m:Table>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+					</sections>
+		</ObjectPageLayout>
+		<!--<m:footer>-->
+		<!--	<m:Toolbar>-->
+		<!--		<m:ToolbarSpacer></m:ToolbarSpacer>-->
+		<!--		<m:Button text="Save"/>-->
+		<!--		<m:Button text="Reset" press="onResetEmp"/>-->
+		<!--	</m:Toolbar>-->
+		<!--</m:footer>-->
+	</m:Page>
+</mvc:View>

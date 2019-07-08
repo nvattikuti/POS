@@ -1,0 +1,70 @@
+<mvc:View controllerName="PosClient.controller.Purchasing" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic" xmlns:f="sap.f" xmlns:fb="sap.ui.comp.filterbar" xmlns:vm="sap.ui.comp.variants">
+	<Page title="{i18n>materialMaster}" showHeader="false" class="launchpadPage materialListPage">
+		<subHeader >
+			<Toolbar >
+				<Bar >
+					<contentLeft>
+						<Button icon="sap-icon://nav-back" press="onBackLaunchpad"/>
+						<Title text="{i18n>purchasing}"/>
+					</contentLeft>
+					<contentMiddle>
+						<!--<Title text="{i18n>warehouse}" class="lastRefreshedText toolbarbottamdesign warehouseFont" />-->
+						<mvc:XMLView viewName="PosClient.view.HeaderActions"/>
+					</contentMiddle>
+					<contentRight>
+						<!--<mvc:XMLView viewName="PosClient.view.LanguageBox"/>-->
+					</contentRight>
+				</Bar>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<GenericTile  frameType="OneByOne" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myStyle"
+				header="{i18n>displayWarehouse}" press="onDisplayWarehouse">
+				<TileContent>
+				<!--	<ImageContent src="sap-icon://activity-items"/>
+					<NumericContent value="{totalModel>/totalValue}"/>-->
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>materialDocumentList}" 
+				press="onMaterialDocument">
+				<TileContent >
+					<!--<NumericContent value="{totalCustomerModel>/totalCustomerValue}"/>-->
+				</TileContent>
+			</GenericTile>
+			<GenericTile press="onStockInTransit" frameType="OneByOne" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myStyle"
+				header="{i18n>stockInTransit}" >
+				<TileContent>
+					<!--<ImageContent src="sap-icon://activity-items"/>
+					<NumericContent value="{totalModel>/totalValue}"/>-->
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>overdueMaterials}" 
+				press="onOverdueMaterials">
+				<TileContent >
+					<!--<NumericContent value="{totalCustomerModel>/totalCustomerValue}"/>-->
+				</TileContent>
+			</GenericTile>
+			<GenericTile press="oInboundDeliveryMonitor" frameType="OneByOne" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myStyle"
+				header="{i18n>inboundDeliveryMonitor}" >
+				<TileContent>
+					<!--<ImageContent src="sap-icon://activity-items"/>
+					<NumericContent value="{totalModel>/totalValue}"/>-->
+				</TileContent>
+			</GenericTile>
+			<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>outboundDeliveryMonitor}" 
+				press="onOutboundDeliveryMonitor">
+				<TileContent >
+					<!--<NumericContent value="{totalCustomerModel>/totalCustomerValue}"/>-->
+				</TileContent>
+			</GenericTile>
+			<GenericTile press="onPostGoodsMovement" frameType="OneByOne" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myStyle"
+				header="{i18n>postGoodsMovement}" >
+				<TileContent>
+					<!--<ImageContent src="sap-icon://activity-items"/>
+					<NumericContent value="{totalModel>/totalValue}"/>-->
+				</TileContent>
+			</GenericTile>
+		</content>
+	</Page>
+</mvc:View>

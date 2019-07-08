@@ -1,0 +1,9 @@
+{
+	"items" : [{
+		"productID" : "1",
+		"productDescription" : "Tv",
+		"supplier" : "Supplier",
+		"standardPrice" : "1000",
+		"priceUnit" : "1"
+	}]
+}

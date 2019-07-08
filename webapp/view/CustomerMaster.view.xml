@@ -1,0 +1,137 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic"
+	xmlns:f="sap.f" xmlns:fb="sap.ui.comp.filterbar" xmlns:vm="sap.ui.comp.variants" controllerName="PosClient.controller.CustomerMaster">
+	<Page title="{i18n>customerMaster}" showHeader="false" class="launchpadPage">
+		<subHeader>
+			<Toolbar>
+				<Bar>
+					<contentLeft>
+						<Button icon="sap-icon://nav-back" press="onBackLaunchpad"/>
+					</contentLeft>
+					<contentMiddle>
+						<!--<Title text="{i18n>warehouse}" class="lastRefreshedText toolbarbottamdesign warehouseFont" />-->
+						<Title text="{i18n>customerMaster}"/>
+					</contentMiddle>
+				</Bar>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<f:DynamicPage headerExpanded="{/headerExpanded}">
+				<!-- DynamicPage Title -->
+				<f:title>
+					<f:DynamicPageTitle>
+<!--						<f:heading>
+							<vm:VariantManagement standardItemText="Customers"/>
+						</f:heading>
+-->						<f:actions>
+							<ToolbarSpacer/>
+							<!--<Button text="Global Action" type="Transparent"/>-->
+							<!--<Button text="Toggle Footer" type="Transparent" press="onToggleFooter"/>-->
+							<!--<Button icon="sap-icon://action" type="Transparent"/>-->
+						</f:actions>
+					</f:DynamicPageTitle>
+				</f:title>
+				<!-- DynamicPage Header -->
+				<f:header>
+					<f:DynamicPageHeader pinnable="true">
+						<f:content>
+							<fb:FilterBar reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="false">
+								<fb:filterItems>
+									<fb:FilterItem name="A" label="{i18n>customernum}">
+										<fb:control>
+											<MultiInput tokens="{oFilterModel>/customerTypeKeys}" suggestionItems="{ path: 'listModel>/items'}" showSuggestion="true"
+												tokenUpdate="customerTokenUpdate" showValueHelp="true" valueHelpRequest="onCustomerTypeValueHelp">
+												<suggestionItems>
+													<core:Item text="{listModel>partner}" key="{listModel>partner}"/>
+												</suggestionItems>
+												<tokens>
+													<Token key="{oFilterModel>key}" text="{oFilterModel>key}"/>
+												</tokens>
+												<customData>
+													<core:CustomData key="CustomerType" value="CustomerType"/>
+												</customData>
+											</MultiInput>
+										</fb:control>
+									</fb:FilterItem>
+									<fb:FilterItem name="B" label="{i18n>name}">
+										<fb:control>
+											<MultiInput tokens="{oFilterModel>/nameKeys}" suggestionItems="{ path: 'listModel>/items'}" showSuggestion="true"
+												tokenUpdate="customerTokenUpdate" showValueHelp="true" id="idCustomerName" valueHelpRequest="onCustomerNameValueHelp">
+												<suggestionItems>
+													<core:Item text="{listModel>name_org}" key="{listModel>name_org}"/>
+												</suggestionItems>
+												<tokens>
+													<Token key="{oFilterModel>key}" text="{oFilterModel>key}"/>
+												</tokens>
+												<customData>
+													<core:CustomData key="customerName" value="customerName"/>
+												</customData>
+											</MultiInput>
+										</fb:control>
+									</fb:FilterItem>
+									<fb:FilterItem name="C" label="{i18n>customeruid}">
+										<fb:control>
+											<MultiInput tokens="{oFilterModel>/mobileNumberKeys}" suggestionItems="{ path: 'listModel>/items'}" showSuggestion="true"
+												tokenUpdate="customerTokenUpdate" showValueHelp="true" valueHelpRequest="onMobileNumberValueHelp">
+												<suggestionItems>
+													<core:Item text="{listModel>uniid}" key="{listModel>uniid}"/>
+												</suggestionItems>
+												<tokens>
+													<Token key="{oFilterModel>key}" text="{oFilterModel>key}"/>
+												</tokens>
+												<customData>
+													<core:CustomData key="productDescription" value="productDescription"/>
+												</customData>
+											</MultiInput>
+										</fb:control>
+									</fb:FilterItem>
+								</fb:filterItems>
+							</fb:FilterBar>
+						</f:content>
+					</f:DynamicPageHeader>
+				</f:header>
+				<!-- DynamicPage Content -->
+				<f:content>
+					<Table class="posBlueTbl" inset="false" items="{ path: 'listModel>/items' }" mode="MultiSelect">
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="{i18n>customerID}"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="{i18n>customerName}"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="{i18n>customeruid}"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="{i18n>address}"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="{i18n>customerCountry}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem vAlign="Middle" press="onCustomerMasterListPress" type="Navigation">
+								<cells>
+									<Text text="{listModel>partner}"/>
+									<Text text="{listModel>name_org}"/>
+									<Text text="{listModel>uniid}"/>
+									<Text text="{listModel>street},{listModel>city}"/>
+									<Text text="{listModel>country}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</f:content>
+				<!-- DynamicPage Footer -->
+				<f:footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button type="Accept" text="Accept"/>
+						<Button type="Reject" text="Reject"/>
+					</OverflowToolbar>
+				</f:footer>
+			</f:DynamicPage>
+			<!--<Button text="Press Here" width="100px" id="__button3" press="onCustomerBasicData"/>-->
+		</content>
+	</Page>
+</mvc:View>

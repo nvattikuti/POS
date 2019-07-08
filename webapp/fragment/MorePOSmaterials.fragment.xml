@@ -1,0 +1,62 @@
+<core:FragmentDefinition xmlns:commons="sap.ui.commons" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns="sap.m">
+	<!--<Dialog title="{i18n>productSelection}">
+		<content>
+			<Table inset="false" items="{ path: 'moreModel>/items' }" mode="SingleSelectLeft" selectionChange="onSelectMoreMaterials" >
+				<columns>
+					
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>productDescription}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>unitPrice}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>salesUnit}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle" press="onMaterialMasterListPress" >
+						<cells>
+							<Text text="{moreModel>maktx_l} / {moreModel>matnr}"/>
+							<Text text="{moreModel>kbetr}"/>
+							<Text text="{moreModel>kmein}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<buttons>
+			<Button press="onOKMoreMaterials" text="{i18n>ok}"/>
+			<Button press="onCancelMoreMaterials" text="{i18n>cancel}"/>
+		</buttons>
+	</Dialog>-->
+	<TableSelectDialog noDataText="{i18n>noCustomersFound}" id="idMoreMaterialPOSTable" title="{i18n>productSelection}"  search="handleMoreMaterialSearch"
+		liveChange="handleMoreMaterialSearch" confirm="onOKMoreMaterials" cancel="handleMoreMaterialCancel" items="{ path: 'moreModel>/items' }">
+		<ColumnListItem press="onSelectMoreMaterials">
+			<cells>
+			    	<Text text="{moreModel>matnr}"/>
+				<Text text="{moreModel>maktx_l}"/>
+			    <Text />
+				<Text text="{moreModel>kbetr}"/>
+				<Text text="{moreModel>kmein}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>productID}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>productDescription}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>supplier}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>standardPrice}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>priceUnit}"/>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

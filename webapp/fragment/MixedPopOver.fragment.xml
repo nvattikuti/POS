@@ -1,0 +1,47 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>mixedPaymentBGN}" contentWidth="800px" contentHeight="500px">
+		<VBox><MessageStrip type="Warning" text="{i18n>mixedOperatorCheck}"/>
+			<MessageStrip id="mixErrMsg" visible="false" text="" type="Error" showIcon="true" showCloseButton="false"></MessageStrip>
+		</VBox>
+		<VBox class="paymentForm">
+			<HBox>
+				<Label class="mixLabel" text="{i18n>total}"/>
+				<Input class="mixInput" enabled="false" value="{posTableModel>/finalTotal}"/>
+					<!--<Text class="mixInput" text="{posTableModel>/finalTotal}"/>-->
+			</HBox>
+			<HBox>
+				<Label class="mixLabel" text="{i18n>cash}"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterAmount}" liveChange="mixedValidation" type="Number" id="idCashValue"/>
+			</HBox>
+			<HBox>
+				<Label class="mixLabel" text="{i18n>card}"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterAmount}" liveChange="mixedValidation" type="Number" id="idCardValue"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterCardType}" type="Number" id="idCardValue1"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterBankRef}" type="Number" id="idCardValue2"/>
+			</HBox>
+			<HBox>
+				<Label class="mixLabelVoucher" text="{i18n>voucher}"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterAmount}" liveChange="mixedValidation" id="idVouchersValue"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterVoucherType}" id="idVouchersValue1"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterVoucherNo}" id="idVouchersValue2"/>
+			</HBox>
+			<HBox>
+				<Label class="mixLabel" text="{i18n>bank}"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterAmount}" liveChange="mixedValidation" id="idBankValue"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterBankName}" id="idBankValue1"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterChequeNo}" type="Number" id="idBankValue2"/>
+			</HBox>
+			<HBox>
+				<Label class="mixLabelVoucher" text="{i18n>Change}"/>
+				<MessageStrip id="mixChange"  class="mixChangeDisplay" text="{posTableModel>/mixChangeVal}" ></MessageStrip>
+				<!--<Input class="mixInput" enabled="false" value="{posTableModel>/mixChangeVal}"/>-->
+					<!--<Text class="mixInput" text="{posTableModel>/mixChangeVal}"/>-->
+			</HBox>
+
+		</VBox>
+		<buttons>
+			<Button press="onMixedAccept" text="{i18n>accept}"/>
+			<Button press="onMixedCancel" text="{i18n>cancel}"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

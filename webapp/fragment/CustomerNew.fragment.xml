@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>createNewCustomer}" contentWidth="800px" contentHeight="500px">
+		<!--<VBox><MessageStrip type="Warning" text="{i18n>mixedOperatorCheck}"/>-->
+		<!--	<MessageStrip id="mixErrMsg" visible="false" text="" type="Error" showIcon="true" showCloseButton="false"></MessageStrip>-->
+		<!--</VBox>-->
+		<VBox class="paymentForm">
+			<HBox>
+				<Label class="mixLabel" text="{i18n>Cust}"/> 
+					<Input class="mixInput" enabled="true" placeholder="{i18n>EnterFirst}" id="idFirst"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>EnterLast}"  id="idLast"/>
+			</HBox>
+			<HBox>
+				<Label class="mixLabel" text="{i18n>uniq}"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterID}" id="idUnique"/>
+			</HBox>
+			<HBox>
+				<Label class="mixLabel" text="{i18n>vat}"/> 
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterVat}" type="Number" id="idVatId"/>
+			</HBox>
+			<HBox>
+				<Label class="mixLabel" text="{i18n>phyid}"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterPhy}" id="idPhyId"/>
+			</HBox>
+			<HBox>
+				<Label class="mixLabel" text="{i18n>mob}"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterMob}" type="Number" id="idMobNum"/>
+			</HBox>
+			<HBox>
+				<Label class="mixLabel" text="{i18n>email}"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterEmail}" id="idEmail"/>
+			</HBox>
+			<HBox>
+				<Label class="mixLabel" text="{i18n>Addr}"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterStreet}" id="idStreet"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterCity}" id="idCity"/>
+					<Input class="mixInput" enabled="true" placeholder="{i18n>pleaseEnterCountry}"  id="idCountry"/>
+			</HBox>
+		</VBox>
+		<buttons>
+			<Button press="onCustAccept" text="{i18n>submit}"/>
+			<Button press="onCustCancel" text="{i18n>cancel}"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

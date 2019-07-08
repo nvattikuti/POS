@@ -1,0 +1,17 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="PosClient.controller.HeaderActions">
+	
+<HBox width="100%" id="__hbox0" class="headerActions">
+	
+    <items>
+	
+        <core:Icon src="sap-icon://customer" size="1.5em" id="__icon2"/>
+	
+        <core:Icon src="sap-icon://bell" size="1.5em" id="__icon3" press="showNotifications"/>
+	
+        <core:Icon src="sap-icon://action-settings" size="1.5em" id="__icon0"/>
+	
+    </items>
+	
+</HBox>
+	
+</mvc:View>

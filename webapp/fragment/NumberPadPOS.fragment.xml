@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<VBox class="numberpad" visible="{posvisibleModel>/numpad}">
+		<HBox>
+			<Button text="1" class="docRightNumPad"></Button>
+			<Button text="2" class="docRightNumPad"></Button>
+			<Button text="3" class="docRightNumPad"></Button>
+		</HBox>
+		<HBox>
+			<Button text="4" class="docRightNumPad"></Button>
+			<Button text="5" class="docRightNumPad"></Button>
+			<Button text="6" class="docRightNumPad"></Button>
+		</HBox>
+		<HBox>
+			<Button text="7" class="docRightNumPad"></Button>
+			<Button text="8" class="docRightNumPad"></Button>
+			<Button text="9" class="docRightNumPad"></Button>
+		</HBox>
+		<HBox>
+			<Button text="." class="docRightNumPad"></Button>
+			<Button text="0" class="docRightNumPad"></Button>
+			<Button text="00" class="docRightNumPad"></Button>
+		</HBox>
+	</VBox>
+</core:FragmentDefinition>

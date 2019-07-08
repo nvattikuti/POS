@@ -1,0 +1,346 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:layout="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:tnt="sap.tnt" controllerName="PosClient.controller.PointOfSales">
+	<Page showHeader="false">
+		<content>
+			<!--<tnt:ToolPage id="toolPage" class="posPage backPOS" title="{i18n>pointOfSales}" sideExpanded="false">
+				<tnt:header>
+					<core:Fragment fragmentName="PosClient.fragment.TopBar" type="XML"/>
+				</tnt:header>
+				<tnt:sideContent>
+					<tnt:SideNavigation id="sideNavigation" expanded="false">
+						<tnt:item>
+							<tnt:NavigationList id="oListId" mode="SingleSelectMaster" itemSelect="OnListpress"
+								items="{path:'sideNavModel>/titleMenu',templateShareable:'true'}" class="buttonColor">
+								<tnt:items>
+									<tnt:NavigationListItem text="{sideNavModel>title}" items="{path:'sideNavModel>Properties',templateShareable:'true'}" press="OnListpress"
+										icon="{sideNavModel>icon}">
+										<tnt:NavigationListItem text="{sideNavModel>property}"/>
+									</tnt:NavigationListItem>
+								</tnt:items>
+							</tnt:NavigationList>
+						</tnt:item>
+					</tnt:SideNavigation>
+				</tnt:sideContent>
+				<tnt:mainContents>
+					<NavContainer id="pageContainer" initialPage="page2">
+						<pages>
+							<ScrollContainer id="page2" horizontal="false" vertical="true" height="100%">
+								<l:Grid defaultSpan="L12 M12 S12" class="posMainGrid">
+									<l:content>
+										<Panel>
+											<content>
+												<VBox class="bgWhite">
+													<Toolbar class="header posSearchHeaderTop">
+														<Input id="productInput" type="Text" value="{selectedModel>/selectedCustomer}" placeholder="{i18n>enterCustomer}" showValueHelp="true"
+															valueHelpRequest="onCustomerSearch" enabled="{enablePOSModel>/customer}" width="15rem" class="sapUiSmallMarginBegin"/>
+														<Button class="sapUiSmallMarginBegin" text="{i18n>new}" icon="sap-icon://add" visible="{posBtnVisibleModel>/cusNew}"/>
+														<Button class="sapUiSmallMarginBegin" text="{i18n>edit}" icon="sap-icon://edit" visible="{posBtnVisibleModel>/cusEdit}"/>
+														<ToggleButton class="sapUiSmallMarginBegin" text="{i18n>note}" visible="{posBtnVisibleModel>/cusNote}" press="onNotePress"/>
+														<ToggleButton class="sapUiSmallMarginBegin" text="{i18n>ship}" visible="{posBtnVisibleModel>/cusShip}" press="onShipPress"/>
+													</Toolbar>
+													<VBox visible="{posBtnVisibleModel>/notePOSFragment}">
+														<core:Fragment fragmentName="PosClient.fragment.NotePOS" type="XML"/>
+													</VBox>
+													<VBox visible="{posBtnVisibleModel>/shipFragment}">
+														<core:Fragment fragmentName="PosClient.fragment.ShipPOS" type="XML"/>
+													</VBox>
+													<Toolbar class="header posSearchHeaderBottom" visible="{posBtnVisibleModel>/materialSpace}">
+														<Input id="MaterialInput" type="Text" value="{selectedModel>/selectedMaterial}" placeholder="{i18n>enterMaterial}" showValueHelp="true"
+															valueHelpRequest="onMaterial" enabled="{enablePOSModel>/material}" width="15rem" showSuggestion="true"
+															suggestionItems="{ path: 'materialModel>/items'}" class="sapUiSmallMarginBegin">
+															<suggestionItems>
+																<core:Item text="{materialModel>productID}" key="{materialModel>productID}"/>
+															</suggestionItems>
+														</Input>
+														<Button text="{i18n>new}" icon="sap-icon://add" press="onNewMaterial"/>
+														<ToggleButton class="sapUiSmallMarginBegin" text="{i18n>misc}" press="onPressItemMisc"/>
+														<CheckBox text="{i18n>tax}" select="onPressTax"/>
+														<ComboBox visible="{posBtnVisibleModel>/taxDropDown}">
+															<core:Item key="1" text="20% Tax"/>
+															<core:Item key="2" text="0% Tax"/>
+														</ComboBox>
+													</Toolbar>
+													<VBox visible="{posBtnVisibleModel>/miscPOSFragment}">
+														<core:Fragment fragmentName="PosClient.fragment.MiscPOS" type="XML"/>
+													</VBox>
+													<VBox visible="{posBtnVisibleModel>/tableSpace}">
+														<Table inset="false" items="{ path: 'pushModel>/' }">
+															<columns>
+																<Column width="3em">
+																	<Text text=" "/>
+																</Column>
+																<Column minScreenWidth="Tablet" demandPopin="true">
+																	<Text text="{i18n>productDescription}"/>
+																</Column>
+																<Column minScreenWidth="Tablet" demandPopin="true">
+																	<Text text="{i18n>unitPrice}"/>
+																</Column>
+																<Column minScreenWidth="Tablet" demandPopin="true">
+																	<Text text="{i18n>quantity}"/>
+																</Column>
+																<Column minScreenWidth="Tablet" demandPopin="true">
+																	<Text text="{i18n>salesUnit}"/>
+																</Column>
+																<Column minScreenWidth="Tablet" demandPopin="true">
+																	<Text text="{i18n>discount}"/>
+																</Column>
+																<Column minScreenWidth="Tablet" demandPopin="true">
+																	<Text text="{i18n>total}"/>
+																</Column>
+															</columns>
+															<items>
+																<ColumnListItem vAlign="Middle" press="onMaterialMasterListPress">
+																	<cells>
+																		<core:Icon src="sap-icon://delete" color="red" press="onProductsDelete"></core:Icon>
+																		<Text text="{pushModel>maktx_l} / {pushModel>matnr}"/>
+																		<Text text="{pushModel>kbetr}"/>
+																		<Input width="7rem" value="{pushModel>kpein}" change="onQuantitySubmit"/>
+																		<Text text="{pushModel>kmein}"/>
+																		<Text text="{posTableModel>/discount}"/>
+																		<HBox>
+																			<Title text="{pushModel>konwa}"/>
+																			<Title class="sapUiTinyMarginBegin" text="{pushModel>rRotal}"/>
+																		</HBox>
+																	</cells>
+																</ColumnListItem>
+															</items>
+														</Table>
+														<Toolbar>
+															<ToolbarSpacer/>
+															<Button text="{i18n>applyDiscount}" press="onDiscountOpen"/>
+															<Button class="sapUiSmallMarginBegin" text="{i18n>setTax}"/>
+														</Toolbar>
+													</VBox>
+												</VBox>
+											</content>
+											<layoutData>
+												<l:GridData span="{spanModel>/leftSpan}"/>
+											</layoutData>
+										</Panel>
+										<Panel>
+											<content>
+												<VBox class="bgWhite" visible="{posBtnVisibleModel>/totalSpace}">
+													<VBox class="posTotalBox">
+														<Toolbar class="header">
+															<Text text="{i18n>subtotal}" class="sapUiSmallMarginBegin"/>
+															<ToolbarSpacer/>
+															<Text text="BGN 0.00" class="sapUiSmallMarginEnd"/>
+														</Toolbar>
+														<Toolbar class="header">
+															<Text text="{i18n>discounts}" class="sapUiSmallMarginBegin"/>
+															<ToolbarSpacer/>
+															<Text text="BGN 0.00" class="sapUiSmallMarginEnd"/>
+														</Toolbar>
+														<Toolbar class="header toolbarbottamdesign">
+															<Title text="{i18n>total}" class="sapUiSmallMarginBegin sapUiSmallMarginTop" level="H2" titleStyle="H2"/>
+															<ToolbarSpacer/>
+															<VBox >
+																<Title text="BGN {posTableModel>/total}" class="sapUiSmallMarginEnd sapUiSmallMarginTop" level="H2" titleStyle="H2"/>
+															</VBox>
+														</Toolbar>
+													</VBox>
+													<Toolbar class="header">
+														<Text/>
+													</Toolbar>
+													<Toolbar class="header">
+														<Text text="{i18n>taxSummary}" class="sapUiSmallMarginBegin"/>
+													</Toolbar>
+													<Toolbar class="header">
+														<Text text="{i18n>tax}" class="sapUiSmallMarginBegin"/>
+														<ToolbarSpacer/>
+														<VBox>
+															<Text text="{pushModel>konwa} {posTableModel>/tax}" class="sapUiSmallMarginEnd"/>
+														</VBox>
+													</Toolbar>
+													<VBox>
+														<FlexBox justifyContent="Center" class="sapUiSmallMarginTop">
+															<items>
+																<Button width="9rem" text="{i18n>payment}" visible="{posvisibleModel>/paymentButton}" class="sapUiTinyMarginBegin posButtons"
+																	press="onPaymentPress"/>
+																<Button width="9rem" text="{i18n>finalPayment}" visible="{posvisibleModel>/finalPaymentButton}" class="sapUiTinyMarginBegin posButtons"
+																	press="onFinalPaymentPress"/>
+																<Button width="9rem" text="{i18n>saveAsQuote}" class="sapUiTinyMarginBegin posButtons"/>
+															</items>
+														</FlexBox>
+														<FlexBox justifyContent="Center" class="sapUiSmallMarginTop">
+															<items>
+																<Button width="9rem" text="{i18n>cancelSale}" press="onCusRemove" class="sapUiTinyMarginBegin posButtons"/>
+																<Button width="9rem" text="{i18n>ok}" class="sapUiTinyMarginBegin posButtons"/>
+															</items>
+														</FlexBox>
+														<FlexBox justifyContent="Center" class="sapUiSmallMarginTop">
+															<items>
+																<Button width="9rem" text="{i18n>close}" class="sapUiTinyMarginBegin posButtons"/>
+																<Button width="9rem" text="{i18n>cancel}" class="sapUiTinyMarginBegin posButtons"/>
+															</items>
+														</FlexBox>
+													</VBox>
+												</VBox>
+											</content>
+											<layoutData>
+												<l:GridData span="{spanModel>/rightSpan}"/>
+											</layoutData>
+										</Panel>
+									</l:content>
+								</l:Grid>
+							</ScrollContainer>
+							<ScrollContainer id="root2" horizontal="false" vertical="true" height="100%">
+								<Text text="This is the root page of the second element"/>
+							</ScrollContainer>
+						</pages>
+					</NavContainer>
+				</tnt:mainContents>
+			</tnt:ToolPage>-->
+			<!--<Page title="{i18n>pointOfSales}" showHeader="false" class="launchpadPage">
+		<subHeader >
+			<Toolbar >
+				<Bar >
+					<contentLeft>
+						<Button icon="sap-icon://nav-back" press="onBackLaunchpad"/>
+					</contentLeft>
+					<contentMiddle>
+						<Title text="{i18n>pointOfSales}"/>
+					</contentMiddle>
+				</Bar>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<l:Grid defaultSpan="L12 M12 S12">
+				<l:content>
+					<Panel >
+						<content>
+							<VBox class="bgWhite">
+								<Toolbar class="header">
+									<Input class="sapUiSmallMarginBegin" width="25%"/>
+									<Input class="sapUiSmallMarginBegin" width="25%"/>
+									<Button text="{i18n>search}" icon="sap-icon://search"/>
+									<Button class="sapUiSmallMarginBegin" text="{i18n>new}" icon="sap-icon://add"/>
+								</Toolbar>
+								<Toolbar class="header">
+									<Input class="sapUiSmallMarginBegin" width="25%"/>
+									<Button text="{i18n>search}" icon="sap-icon://search"/>
+									<Button class="sapUiLargeMarginBegin" text="{i18n>new}" icon="sap-icon://add"/>
+									<Button class="sapUiSmallMarginBegin" text="{i18n>misc}"/>
+								</Toolbar>
+								<Table inset="false" items="{ path: 'posModel>/items' }">
+									<columns >
+										<Column minScreenWidth="Tablet" demandPopin="true">
+											<Text text="{i18n>productDescription}"/>
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true">
+											<Text text="{i18n>unitPrice}"/>
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true">
+											<Text text="{i18n>quantity}"/>
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true">
+											<Text text="{i18n>discount}"/>
+										</Column>
+										<Column minScreenWidth="Tablet" demandPopin="true">
+											<Text text="{i18n>total}"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem vAlign="Middle" press="onMaterialMasterListPress">
+											<cells>
+												<Text text="{posModel>productDescription}"/>
+												<Text text="{posModel>priceUnit}"/>
+												<StepInput value="1" step="{step}" change="onChange" width="7rem" min="0"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+								<Toolbar >
+									<ToolbarSpacer/>
+									<Button text="{i18n>applyDiscount}"/>
+									<Button class="sapUiSmallMarginBegin" text="{i18n>setTax}"/>
+								</Toolbar>
+							</VBox>
+						</content>
+						<layoutData>
+							<l:GridData span="L10"/>
+						</layoutData>
+					</Panel>
+					<Panel >
+						<content>
+							<VBox class="bgWhite">
+								<Toolbar class="header">
+									<Text text="{i18n>subtotal}" class="sapUiSmallMarginBegin"/>
+									<ToolbarSpacer/>
+									<Text text="$0.00" class="sapUiSmallMarginEnd"/>
+								</Toolbar>
+								<Toolbar class="header">
+									<Text text="{i18n>discounts}" class="sapUiSmallMarginBegin"/>
+									<ToolbarSpacer/>
+									<Text text="$0.00" class="sapUiSmallMarginEnd"/>
+								</Toolbar>
+								<Toolbar class="header toolbarbottamdesign">
+									<Title text="{i18n>total}" class="sapUiSmallMarginBegin sapUiSmallMarginTop" level="H2" titleStyle="H2"/>
+									<ToolbarSpacer/>
+									<Title text="$0.00" class="sapUiSmallMarginEnd sapUiSmallMarginTop" level="H2" titleStyle="H2"/>
+								</Toolbar>
+								<Toolbar class="header">
+									<Text/>
+								</Toolbar>
+								<Toolbar class="header">
+									<Text text="{i18n>taxSummary}" class="sapUiSmallMarginBegin"/>
+								</Toolbar>
+								<Toolbar class="header">
+									<Text text="{i18n>tax}" class="sapUiSmallMarginBegin"/>
+									<ToolbarSpacer/>
+									<Text text="$0.00" class="sapUiSmallMarginEnd"/>
+								</Toolbar>
+								<FlexBox alignItems="Center" justifyContent="Center">
+									<items>
+										<Button text="{i18n>payment}" type="Accept"/>
+									</items>
+								</FlexBox>
+								<FlexBox height="100px" alignItems="Center" justifyContent="Center">
+									<items>
+										<Button text="{i18n>saveAsQuote}"/>
+									</items>
+								</FlexBox>
+								<FlexBox alignItems="Center" justifyContent="Center">
+									<items>
+										<Button text="{i18n>cancelSale}" type="Reject"/>
+									</items>
+								</FlexBox>
+							</VBox>
+						</content>
+						<layoutData>
+							<l:GridData span="L2"/>
+						</layoutData>
+					</Panel>
+				</l:content>
+			</l:Grid>
+		</content>
+
+	</Page>-->
+		</content>
+		<!--footer>
+			<Toolbar>
+				<HBox>
+					<Text text="Store No. : " class="sapUiSmallMarginBegin"/>
+					<Text text="{storeModel>/selectedID}" class="sapUiTinyMarginBegin"/>
+				</HBox>
+				<HBox>
+					<Text text="Store Name :" class="sapUiSmallMarginBegin"/>
+					<Text text="СТОЧНА ГАРА БАЗА" class="sapUiTinyMarginBegin"/>
+				</HBox>
+				<HBox>
+					<Text text="POS ID : " class="sapUiSmallMarginBegin"/>
+					<Text text="{incrementModel>/posnr}" class="sapUiTinyMarginBegin" id="idPOSValue"/>
+				</HBox>
+				<HBox>
+					<Text text="Last Recept No. : " class="sapUiSmallMarginBegin"/>
+					<Text text="{incrementModel>/vbeln}" class="sapUiTinyMarginBegin"/>
+				</HBox>
+				<HBox>
+					<Text text="Recept No. : " class="sapUiSmallMarginBegin"/>
+					<Text text="{incrementModel>/next_vbeln}" class="sapUiTinyMarginBegin"/>
+				</HBox>
+				<ToolbarSpacer/>
+			</Toolbar>
+		</footer>-->
+	</Page>
+</mvc:View>

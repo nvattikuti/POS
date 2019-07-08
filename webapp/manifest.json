@@ -1,0 +1,318 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "PosClient",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": ["sap_hcb", "sap_belize"]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "PosClient.view.Login",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "PosClient.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"viewPath": "PosClient.view",
+				"controlId": "V_Root",
+				"viewLevel": 1,
+				"controlAggregation": "pages",
+				"routerClass": "sap.m.routing.Router",
+				"async": true
+			},
+			"targets": {
+				"login": {
+					"viewName": "Login",
+					"viewId": "login",
+					"viewLevel": 1,
+					"viewType": "XML"
+				},
+				"launchPad": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "LaunchPad",
+					"title": "Launch Pad",
+					"viewLevel": 2
+				},
+				"materialMaster": {
+					"viewName": "MaterialMaster",
+					"viewId": "materialMaster",
+					"viewLevel": 2,
+					"viewType": "XML"
+				},
+				"materialDetail": {
+					"viewName": "MaterialDetail",
+					"viewId": "materialDetail",
+					"viewLevel": 2,
+					"viewType": "XML"
+				},
+				"pointOfSales": {
+					"viewName": "PointOfSales",
+					"viewId": "pointOfSales",
+					"viewLevel": 2,
+					"viewType": "XML"
+				},
+				"settingsDashboard": {
+					"viewName": "SettingsDashboard",
+					"viewId": "settingsDashboard",
+					"viewLevel": 2,
+					"viewType": "XML"
+				},
+				"settingsView": {
+					"viewName": "SettingsView",
+					"viewId": "settingsView",
+					"viewLevel": 2,
+					"viewType": "XML"
+				},
+				"customerMaster": {
+					"viewName": "CustomerMaster",
+					"viewId": "customerMaster",
+					"viewLevel": 2,
+					"viewType": "XML"
+				},
+				"customerBasicData": {
+					"viewName": "CustomerBasicData",
+					"viewId": "customerBasicData",
+					"viewLevel": 2,
+					"viewType": "XML"
+				},
+				"inventory": {
+					"viewName": "Inventory",
+					"viewId": "inventory",
+					"viewLevel": 2,
+					"viewType": "XML"
+				},
+				"sales": {
+					"viewName": "Sales",
+					"viewType": "XML"
+				},
+				"invoices": {
+					"viewName": "Invoices",
+					"viewType": "XML"
+				},
+				"salesMaster": {
+					"viewName": "SalesMaster",
+					"viewLevel": 1,
+					"viewId": "salesMaster",
+					"controlAggregation": "masterPages",
+					"controlId": "idSplitAppControl",
+					"parent": "sales",
+					"viewType": "XML"
+				},
+				"salesDetail": {
+					"viewName": "SalesDetail",
+					"viewId": "salesDetail",
+					"viewLevel": 2,
+					"controlId": "idSplitAppControl",
+					"controlAggregation": "detailPages",
+					"parent": "sales",
+					"viewType": "XML"
+				},
+				"invoicesMaster": {
+					"viewName": "InvoiceMaster",
+					"viewLevel": 1,
+					"viewId": "invoicesMaster",
+					"controlAggregation": "masterPages",
+					"controlId": "idSplitAppControl",
+					"parent": "sales",
+					"viewType": "XML"
+				},
+				"invoicesDetail": {
+					"viewName": "invoicesDetail",
+					"viewId": "invoicesDetail",
+					"viewLevel": 2,
+					"controlId": "idSplitAppControl",
+					"controlAggregation": "detailPages",
+					"parent": "sales",
+					"viewType": "XML"
+				},
+				"return": {
+					"viewName": "Return",
+					"viewType": "XML"
+				},
+				"returnMaster": {
+					"viewName": "ReturnMaster",
+					"viewLevel": 1,
+					"viewId": "returnMaster",
+					"controlAggregation": "masterPages",
+					"controlId": "idSplitReturn",
+					"parent": "return",
+					"viewType": "XML"
+				},
+				"returnDetail": {
+					"viewName": "ReturnDetail",
+					"viewId": "returnDetail",
+					"viewLevel": 2,
+					"controlId": "idSplitReturn",
+					"controlAggregation": "detailPages",
+					"parent": "return",
+					"viewType": "XML"
+				},
+				"purchasing": {
+					"viewName": "Purchasing",
+					"viewId": "purchasing",
+					"viewLevel": 2,
+					"viewType": "XML"
+				},
+				"pos": {
+					"viewName": "POS",
+					"viewId": "pos",
+					"viewLevel": 2,
+					"viewType": "XML"
+				},
+				"PrintForm": {
+					"viewType": "XML",
+					"viewName": "PrintForm",
+					"viewId": "printForm",
+					"viewLevel": 2
+				}
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "login",
+				"target": ["login"]
+			}, {
+				"pattern": "launchPad",
+				"name": "launchPad",
+				"target": ["launchPad"]
+			}, {
+				"pattern": "materialMaster",
+				"name": "materialMaster",
+				"target": ["materialMaster"]
+			}, {
+				"pattern": "materialDetail/{MaterialNumber}",
+				"name": "materialDetail",
+				"target": ["materialDetail"]
+			}, {
+				"pattern": "pointOfSales",
+				"name": "pointOfSales",
+				"target": ["pointOfSales"]
+			}, {
+				"pattern": "settingsDashboard",
+				"name": "settingsDashboard",
+				"target": ["settingsDashboard"]
+			}, {
+				"pattern": "settingsView",
+				"name": "settingsView",
+				"target": ["settingsView"]
+			}, {
+				"pattern": "customerMaster",
+				"name": "customerMaster",
+				"target": ["customerMaster"]
+			}, {
+				"pattern": "customerBasicData/{CustomerNumber}",
+				"name": "customerBasicData",
+				"target": ["customerBasicData"]
+			}, {
+				"pattern": "inventory",
+				"name": "inventory",
+				"target": ["inventory"]
+			}, {
+				"pattern": "sales",
+				"name": "sales",
+				"target": ["salesDetail", "salesMaster"]
+			}, {
+				"pattern": "salesMaster",
+				"name": "salesMaster",
+				"target": ["salesDetail", "salesMaster"]
+			}, {
+				"pattern": "salesDetail/{vbeln}/{shipto}",
+				"name": "salesDetail",
+				"target": ["salesMaster", "salesDetail"]
+			}, {
+				"pattern": "return",
+				"name": "return",
+				"target": ["returnDetail", "returnMaster"]
+			}, {
+				"pattern": "returnMaster",
+				"name": "returnMaster",
+				"target": ["returnDetail", "returnMaster"]
+			}, {
+				"pattern": "returnDetail/{vbeln}/{shipto}",
+				"name": "returnDetail",
+				"target": ["returnMaster", "returnDetail"]
+			}, {
+				"pattern": "purchasing",
+				"name": "purchasing",
+				"target": ["purchasing"]
+			}, {
+				"pattern": "pos",
+				"name": "pos",
+				"target": ["pos"]
+			}, {
+				"name": "PrintForm",
+				"pattern": "printForm",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["PrintForm"]
+			}, {
+				"name": "invoicesMaster",
+				"pattern": "invoicesMaster",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["invoicesMaster", "invoicesDetail"]
+			}, {
+				"name": "invoicesDetail",
+				"pattern": "invoicesMaster/{vbeln}/{shipto}",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["invoicesMaster", "invoicesDetail"]
+			}]
+		}
+	}
+}

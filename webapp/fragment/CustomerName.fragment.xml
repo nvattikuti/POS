@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified">
+	<SelectDialog noDataText="{i18n>customerNameNotFound}" title="{i18n>selectCustomerName}" search="onCustomerNameSearch"
+		liveChange="onCustomerNameSearch" confirm="onCustomerNameConfirm" multiSelect="true" rememberSelections="true"
+		items="{ path: 'listModel>/items'}" id="idCustomerNameValueHelp">
+		<StandardListItem title="{listModel>name_org}" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

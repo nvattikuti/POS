@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified">
+	<SelectDialog noDataText="{i18n>customerTypeNotFound}" title="{i18n>selectCustomerType}" search="onCustomerTypeSearch" liveChange="onCustomerTypeSearch"
+		confirm="onCustomerTypeConfirm" multiSelect="true" rememberSelections="true"  items="{ path: 'listModel>/items'}"
+		id="idCustomerTypeValueHelp">
+		<StandardListItem title="{listModel>partner}" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

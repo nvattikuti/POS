@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:tnt="sap.tnt"
+	height="100%">
+	<tnt:ToolHeader>
+		<!--<Button icon="sap-icon://menu2" type="Transparent" press="handlePressConfiguration"/>-->
+		<Button icon="sap-icon://home" visible="{userData>/homeButton}" type="Transparent" press="onBackLaunchpad"/>
+		<!--<Button icon="sap-icon://navigation-left-arrow" visible="{userData>/backButton}" type="Transparent" press="onNavBack"/>-->
+	
+		<ToolbarSpacer />
+		<Text text="POS" wrapping="false">
+			<layoutData>
+				<OverflowToolbarLayoutData priority="Disappear" />
+			</layoutData>
+		</Text>
+		<ToolbarSpacer />
+		<Button text="Notification" icon="sap-icon://message-popup" type="Transparent" />
+		<Button text="{userData>/loggedinUser}" icon="sap-icon://customer" type="Transparent" press="onUserNamePress"/>
+			
+	
+	</tnt:ToolHeader>
+</core:FragmentDefinition>

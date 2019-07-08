@@ -1,0 +1,236 @@
+{
+	"nodes": [
+		{
+			"id": "0",
+			"lane": "0",
+			"title": "Connectivity",
+			"titleAbbreviation": "CN 1",
+			"children": [1],
+			"state": "Negative",
+			"stateText": "Not Connected",
+			"focused": true,
+			"highlighted": true,
+			"texts": [ "Establish the connection" ]
+		}, {
+			"id": "1",
+			"lane": "0",
+			"title": "Store Data",
+			"titleAbbreviation": "SO 1",
+			"children": [2, 10, 11],
+			"state": "Positive",
+			"stateText": "OK status",
+			"focused": true,
+			"highlighted": false,
+			"texts": [ "Sales Order Document Overdue long text for the wrap up all the aspects", "Not cleared" ]
+		}, {
+			"id": "2",
+			"lane": "0",
+			"title": "Employee Data",
+			"titleAbbreviation": "OD 40",
+			"children": [12],
+			"state": "Negative",
+			"stateText": "NOT OK",
+			"focused": false,
+			"highlighted": false,
+			"texts": [ "text 1", "text 2" ]
+		}, {
+			"id": "10",
+			"lane": "1",
+			"title": "User Creation",
+			"titleAbbreviation": "OD 43",
+			"children": [20],
+			"state": "Neutral",
+			"stateText": null,
+			"focused": false,
+			"highlighted": false,
+			"texts": [ "text 1", "text 2" ]
+		}, {
+			"id": "11",
+			"lane": "1",
+			"title": "Role Assignment",
+			"titleAbbreviation": "OD 45",
+			"children": [21],
+			"state": "Neutral",
+			"stateText": null,
+			"focused": false,
+			"highlighted": false,
+			"texts": null
+		}, {
+			"id": "12",
+			"lane": "1",
+			"title": "Store Mapping",
+			"titleAbbreviation": "I 9",
+			"children": [22, 23, 24, 25],
+			"state": "Positive",
+			"stateText": "OK status",
+			"focused": false,
+			"highlighted": false,
+			"texts": null
+		}, {
+			"id": "20",
+			"lane": "2",
+			"title": "Product Master",
+			"titleAbbreviation": "PM",
+			"children": [30],
+			"state": "Positive",
+			"stateText": null,
+			"focused": false,
+			"highlighted": false,
+			"texts": null
+		},
+		{
+			"id": "21",
+			"lane": "2",
+			"title": "Customer Master",
+			"titleAbbreviation": "CM",
+			"children": [31],
+			"state": "Positive",
+			"stateText": null,
+			"focused": false,
+			"highlighted": false,
+			"texts": null
+		},
+		{
+			"id": "22",
+			"lane": "2",
+			"title": "Pricing",
+			"titleAbbreviation": "PC",
+			"children": null,
+			"state": null,
+			"stateText": null,
+			"focused": false,
+			"highlighted": false,
+			"texts": null
+		},
+		{
+			"id": "23",
+			"lane": "2",
+			"title": "Inventory",
+			"titleAbbreviation": "IN",
+			"children": null,
+			"state": "Positive",
+			"stateText": null,
+			"focused": false,
+			"highlighted": false,
+			"texts": null
+		},
+		{
+			"id": "24",
+			"lane": "2",
+			"title": "Purchasing",
+			"titleAbbreviation": "PR",
+			"children": null,
+			"state": "Positive",
+			"stateText": null,
+			"focused": false,
+			"highlighted": false,
+			"texts": null
+		},
+		{
+			"id": "25",
+			"lane": "2",
+			"title": "Sales",
+			"titleAbbreviation": "S",
+			"children": null,
+			"state": "Positive",
+			"stateText": null,
+			"focused": false,
+			"highlighted": false,
+			"texts": null
+		},{
+			"id": "30",
+			"lane": "3",
+			"title": "Print Form",
+			"titleAbbreviation": "PF",
+			"children": [ 40 ],
+			"state": "Critical",
+			"stateText": "AD Issue",
+			"focused": false,
+			"highlighted": false,
+			"texts": null
+		}, {
+			"id": "31",
+			"lane": "3",
+			"title": "Report",
+			"titleAbbreviation": "AD 7",
+			"children": [ 41, 42, 43 ],
+			"state": "Positive",
+			"stateText": "OK status",
+			"focused": false,
+			"highlighted": false,
+			"texts": null
+		}, {
+			"id": "40",
+			"lane": "4",
+			"title": "Archive Product",
+			"titleAbbreviation": "AP",
+			"children": null,
+			"state": "Positive",
+			"stateText": "OK status",
+			"focused": false,
+			"highlighted": false,
+			"texts": null
+		}, {
+			"id": "41",
+			"lane": "4",
+			"title": "Archive Customer",
+			"titleAbbreviation": "AC",
+			"children": null,
+			"state": "Positive",
+			"stateText": "OK status",
+			"focused": false,
+			"highlighted": false,
+			"texts": null
+		}, {
+			"id": "42",
+			"lane": "4",
+			"title": "Archive Pricing",
+			"titleAbbreviation": "AP",
+			"children": null,
+			"state": "Positive",
+			"stateText": "OK status",
+			"focused": false,
+			"highlighted": false,
+			"texts": null
+		}, {
+			"id": "43",
+			"lane": "4",
+			"title": "Logs",
+			"titleAbbreviation": "L",
+			"children": null,
+			"state": "Planned",
+			"stateText": "Planned status text",
+			"focused": false,
+			"highlighted": false,
+			"texts": null
+		}
+	],
+	"lanes": [
+		{
+			"id": "0",
+			"icon": "sap-icon://order-status",
+			"label": "Initial Setup",
+			"position": 0
+		}, {
+			"id": "1",
+			"icon": "sap-icon://monitor-payments",
+			"label": "Configuration",
+			"position": 1
+		}, {
+			"id": "2",
+			"icon": "sap-icon://payment-approval",
+			"label": "Integration",
+			"position": 2
+		}, {
+			"id": "3",
+			"icon": "sap-icon://money-bills",
+			"label": "Layout",
+			"position": 3
+		}, {
+			"id": "4",
+			"icon": "sap-icon://payment-approval",
+			"label": "Utilities",
+			"position": 4
+		}
+	]
+}

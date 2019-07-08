@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog noDataText="{i18n>noCustomersFound}" id="idCustomerPOSTable" title="{i18n>selectCustomer}" search="handleSearch" liveChange="handleSearch"
+		confirm="handleClose" cancel="handleCancel" items="{ path : 'listModel>/items'}">
+		<ColumnListItem>
+			<cells>
+				<Text text="{listModel>partner}"/>
+				<Text text="{listModel>name_org}"/>
+				<Text text="{listModel>mob_number}"/>
+				<Text text="{listModel>city}"/>
+				<Text text="{listModel>country}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>customerID}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>customerName}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>customeruid}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>customerCity}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>customerCountry}"/>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

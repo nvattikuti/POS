@@ -1,0 +1,15 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog id="StoreDialog" title="Select/Change Store">
+	    <content>
+            <HBox class="connectivityDialogSubmit">
+            	<Select id="storeSelectBox" change="onStoreChange" items="{path:'storeListModel>/items'}">
+					<core:Item key="{storeListModel>werks}" text="{storeListModel>name1}"/>
+				</Select>
+            </HBox>
+	        <HBox class="connectivityDialogSubmit">
+	        	<Button id="_btnSubmit" class="btn-submit" text="Submit" press="submitStoreDialog"/>
+	        	<Button id="_btnCancel" text="Cancel" press="closeDialog"/>
+	        </HBox>
+	    </content>
+	</Dialog>
+</core:FragmentDefinition>

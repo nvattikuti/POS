@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified">
+	<SelectDialog noDataText="{i18n>supplierNotFound}" title="{i18n>selectSupplier}" search="onSupplierSearch" liveChange="onSupplierSearch"
+		confirm="onSupplierConfirm" multiSelect="true" rememberSelections="true"  items="{ path: 'listModel>/items'}"
+		id="idsupplierValueHelp">
+		<StandardListItem title="{listModel>supplier}-{listModel>sname}" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

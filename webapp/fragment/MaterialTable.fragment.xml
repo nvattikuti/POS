@@ -1,0 +1,31 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog noDataText="{i18n>noMaterialsFound}" id="idMaterialPOSTable" title="{i18n>selectMaterial}" search="handleMaterialSearch" liveChange="handleMaterialSearch"
+		confirm="handleMaterialClose" cancel="handleMaterialCancel" items="{ path : 'materialModel>/items'}">
+		<ColumnListItem>
+			<cells>
+				<Text text="{materialModel>productID}"/>
+				<Text text="{materialModel>productDescription}"/>
+				<Text text="{materialModel>supplier}"/>
+				<Text text="{materialModel>standardPrice}"/>
+				<Text text="{materialModel>priceUnit}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>productID}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>productDescription}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>supplier}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>standardPrice}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>priceUnit}"/>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

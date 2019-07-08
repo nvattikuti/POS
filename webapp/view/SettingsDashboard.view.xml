@@ -1,0 +1,113 @@
+<!--<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:m="sap.m" controllerName="PosClient.controller.SettingsDashboard"
+	xmlns:html="http://www.w3.org/1999/xhtml">-->
+    <mvc:View
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:m="sap.m"
+	xmlns="sap.suite.ui.commons"
+	controllerName="PosClient.controller.SettingsDashboard">
+	<m:Panel>
+		<!--<m:Label text="Process Flow sample - zooming buttons and highlighted items" />
+		<m:HBox >
+			<m:Button text="Zoom In" press="onZoomIn" />
+			<m:Button text="Zoom Out" press="onZoomOut" />
+			<m:Button text="Display Highlight Path" press="onHighlightPath" />
+			<m:Button text="Update Model" press="onUpdateModel" />
+		</m:HBox>-->
+	
+		<ProcessFlow
+		renderType="Bare"
+			id="processflow1"
+			scrollable="false"
+			foldedCorners="true"
+			nodePress="onNodePress"
+			nodes="{oSettingsModel>/nodes}"
+			lanes="{oSettingsModel>/lanes}">
+			<nodes>
+				<ProcessFlowNode
+					laneId="{oSettingsModel>lane}"
+					nodeId="{oSettingsModel>id}"
+					title="{oSettingsModel>title}"
+					titleAbbreviation="{oSettingsModel>titleAbbreviation}"
+					children="{oSettingsModel>children}"
+					state="{oSettingsModel>state}"
+					stateText="{oSettingsModel>stateText}"
+					texts="{oSettingsModel>texts}"
+					highlighted="{oSettingsModel>highlighted}"
+					focused="{oSettingsModel>focused}" />
+			</nodes>
+			<lanes>
+				<ProcessFlowLaneHeader
+					laneId="{oSettingsModel>id}"
+					iconSrc="{oSettingsModel>icon}"
+					text="{oSettingsModel>label}"
+					position="{oSettingsModel>position}" />
+			</lanes>
+		</ProcessFlow>
+		<!--<m:Label text="Process Flow sample - click on lane header" />
+		<ProcessFlow
+			id="processflow2"
+			scrollable="false"
+			nodes="{pf2>/nodes}"
+			lanes="{pf2>/lanes}"
+			headerPress="onHeaderPress">
+			<nodes>
+				<ProcessFlowNode
+					laneId="{pf2>lane}"
+					nodeId="{pf2>id}"
+					title="{pf2>title}"
+					children="{pf2>children}"
+					state="{pf2>state}"
+					stateText="{pf2>stateText}"
+					texts="{pf2>texts}"
+					focused="{pf2>focused}" />
+			</nodes>
+			<lanes>
+				<ProcessFlowLaneHeader
+					laneId="{pf2>id}"
+					iconSrc="{pf2>icon}"
+					text="{pf2>label}"
+					position="{pf2>position}"
+					state="{pf2>state}" />
+			</lanes>
+		</ProcessFlow>-->
+	</m:Panel>
+</mvc:View>
+
+	<!--<App>
+		<pages>
+			<Page title="Dashboard Settings">
+				<content>
+					
+				</content>
+			</Page>
+		</pages>
+	</App>-->
+	<!--<m:Panel>-->
+	<!--	<ProcessFlow-->
+	<!--		id="settings_dashboard"-->
+	<!--		scrollable="false"-->
+	<!--		nodes="{sdData>/nodes}"-->
+	<!--		lanes="{sdData>/lanes}"-->
+	<!--		headerPress="onHeaderPress">-->
+	<!--		<nodes>-->
+	<!--			<ProcessFlowNode-->
+	<!--				laneId="{sdData>lane}"-->
+	<!--				nodeId="{sdData>id}"-->
+	<!--				title="{sdData>title}"-->
+	<!--				children="{sdData>children}"-->
+	<!--				state="{sdData>state}"-->
+	<!--				stateText="{sdData>stateText}"-->
+	<!--				texts="{sdData>texts}"-->
+	<!--				focused="{sdData>focused}" />-->
+	<!--		</nodes>-->
+	<!--		<lanes>-->
+	<!--			<ProcessFlowLaneHeader-->
+	<!--				laneId="{sdData>id}"-->
+	<!--				iconSrc="{sdData>icon}"-->
+	<!--				text="{sdData>label}"-->
+	<!--				position="{sdData>position}"-->
+	<!--				state="{sdData>state}" />-->
+	<!--		</lanes>-->
+	<!--	</ProcessFlow>-->
+	<!--</m:Panel>-->
+<!--</mvc:View>-->

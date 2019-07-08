@@ -1,0 +1,10 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="PosClient.controller.LanguageBox"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<ActionSelect class="languageSelect" xmlns:sap.ui.core="sap.ui.core" selectedItem="Element sap.ui.core.ListItem#__item0" 
+    	selectedKey="en" selectedItemId="__item0" id="__select0" change="languageSwitch">
+        <items>
+            <sap.ui.core:ListItem text="English" key="en" id="__item0"/>
+            <sap.ui.core:ListItem text="Bulgarian" key="bg" id="__item1"/>
+            <sap.ui.core:ListItem text="German" key="de" id="__item2"/></items>
+    </ActionSelect>
+</mvc:View>

@@ -1,0 +1,100 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="PosClient.controller.SalesDetail">
+	<semantic:DetailPage id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" showFooter="false" title="{detailSalesModel>partner}" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
+		<semantic:customHeaderContent>
+			<!-- Updated Logic at Line Item level. <Button press="openFullScreenView" id="cartIcon" text="" icon="sap-icon://cart"/>-->
+		
+		</semantic:customHeaderContent> 
+		<semantic:content>
+			<ObjectListItem title="Order {salesOrderModel>/vbeln}" type="Active"
+				number="Price: {salesOrderModel>/netwr}"
+				numberUnit="{i18n>currencyType}">
+				<!--<firstStatus>-->
+				<!--	<ObjectStatus text="Customer: {salesOrderModel>/name_org}" state="{ path: 'Status', formatter: 'sap.m.sample.ObjectListItem.Formatter.status' }"/>-->
+				<!--</firstStatus>-->
+				<attributes>
+					<ObjectAttribute text="Customer: {salesOrderModel>/name_org}"/>
+					<ObjectAttribute text="Ordered: {salesOrderModel>/erdat}"/>
+					<ObjectAttribute text="Shipped: {salesOrderModel>/shipped}"/>
+				</attributes>
+			</ObjectListItem>
+			<IconTabBar id="idIconTabBarMulti" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter icon="sap-icon://shipping-status">
+						<f:SimpleForm id="SimpleFormDisplay354" editable="false" layout="ResponsiveGridLayout" title="{i18n>shippingAddress}" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<f:content>
+								<Label text="{i18n>name}"/>
+								<!--<Text text="{salesShipToModel>/name_org}"/>-->
+								<Text text="{salesOrderModel>/ship_name}"/>
+								<Label text="{i18n>street}"/>
+								<!--<Text text="{salesShipToModel>/street}"/>-->
+								<Text text="{salesOrderModel>/ship_stree}"/>
+								<Label text="{i18n>zipCodeCity}"/>
+								<!--<Text text="{salesShipToModel>/post_code} / {salesShipToModel>/city}"/>-->
+								<Text text="{salesOrderModel>/ship_post} / {salesOrderModel>/ship_city}"/>
+								<Label text="{i18n>country}"/>
+								<!--<Text text="{salesShipToModel>/country}"/>-->
+								<Text text="{salesOrderModel>/ship_country}"/>
+							</f:content>
+						</f:SimpleForm>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://person-placeholder">
+						<f:SimpleForm editable="false" layout="ResponsiveGridLayout" title="{i18n>processorInformation}" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+							<f:content>
+								<core:Title text="{i18n>details}"/>
+								<Label text="{i18n>name}"/>
+								<Text text="{storeUserModel>/fname} {storeUserModel&gt;/lname}"/>
+								<Label text="{i18n>employeeID}"/>
+								<Text text="{storeUserModel>/werks}"/>
+								<Label text="{i18n>jobTitle}"/>
+								<Text text="{storeUserModel>/job}"/>
+								<Label text="{i18n>phone}"/>
+								<Text text="{storeUserModel>/mob_number}"/>
+							</f:content>
+						</f:SimpleForm>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+			<Toolbar>
+				<Title text="{i18n>lineItems}" titleStyle="H4" class="sapUiSmallMarginBegin"/>
+			</Toolbar>
+			<Table class="posBlueTbl" inset="false" items="{ path: 'salesDetailModel>/items' }">
+				<columns>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>product}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>quantity}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>unit}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>unitPrice}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>discount}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>tax}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>Total}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle" press="onCustomerGrpDataPress">
+						<cells>
+							<Text text="{salesDetailModel>maktx_l}"/>
+							<Text text="{salesDetailModel>kwmeng}"/>
+							<Text text="{salesDetailModel>meins}"/>
+							<Text text="{salesDetailModel>uprce}"/>
+							<Text text="{salesDetailModel>dcont}"/>
+							<Text text="{salesDetailModel>taxamt}"/>
+							<Text text="{salesDetailModel>netwr}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+	</semantic:DetailPage>
+</mvc:View>

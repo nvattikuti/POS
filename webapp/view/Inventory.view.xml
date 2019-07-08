@@ -1,0 +1,42 @@
+<mvc:View controllerName="PosClient.controller.Inventory" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Page title="{i18n>inventory}" showHeader="false">
+		<subHeader >
+			<Toolbar >
+				<Bar >
+					<contentLeft>
+						<Button icon="sap-icon://nav-back" press="onBackLaunchpad"/>
+						<Title text="{i18n>inventory}" titleStyle="H4" level="H4" class="sapUiLargeMarginBegin"/>
+					</contentLeft>
+					<contentMiddle>
+						<!--<Title text="{i18n>warehouse}" class="lastRefreshedText toolbarbottamdesign warehouseFont" />-->
+						<mvc:XMLView viewName="PosClient.view.HeaderActions"/>
+					</contentMiddle>
+					<contentRight>
+						<!--<mvc:XMLView viewName="PosClient.view.LanguageBox"/>-->
+					</contentRight>
+				</Bar>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<IconTabBar id="idIconTabBar" select="handleIconTabBarSelect" class="sapUiResponsiveContentPadding" backgroundDesign="Translucent"
+				headerBackgroundDesign="Transparent">
+				<items>
+					<IconTabFilter showAll="true" count="{countModel>/all}" text="{i18n>products}" key="All">
+						<core:Fragment fragmentName="PosClient.fragment.TableInventory" type="XML"/>
+					</IconTabFilter>
+					<IconTabSeparator/>
+					<IconTabFilter icon="sap-icon://begin" iconColor="Positive" count="{countModel>/inStock}" text="{i18n>inStock}" key="inStock">
+						<core:Fragment fragmentName="PosClient.fragment.TableInventory" type="XML"/>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://compare" iconColor="Critical" count="{/ProductCollectionStats/Counts/Weight/Heavy}" text="{i18n>shortage}"
+						key="shortage">
+						<core:Fragment fragmentName="PosClient.fragment.TableInventory" type="XML"/>
+					</IconTabFilter>
+					<IconTabFilter icon="sap-icon://inventory" iconColor="Negative" count="{countModel>/outOfStock}" text="{i18n>outOfStock}" key="outOfStock">
+						<core:Fragment fragmentName="PosClient.fragment.TableInventory" type="XML"/>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+	</Page>
+</mvc:View>

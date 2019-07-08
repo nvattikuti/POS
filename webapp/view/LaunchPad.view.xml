@@ -1,0 +1,269 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:mi="sap.suite.ui.microchart" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic" xmlns:m="sap.m" controllerName="PosClient.controller.LaunchPad" xmlns:tnt="sap.tnt">
+	<Page title="{i18n>title}" showHeader="false" class="launchpadPage">
+		<content>
+			<tnt:ToolPage id="lPtoolPage" class="launchpadPage" title="{i18n>pointOfSales}" sideExpanded="false">
+				<tnt:header>
+					<tnt:ToolHeader>
+						<!--<Button class="lefttoggle" id="lPsideNavigationToggleButton" visible="{showNavModel>/visible}" icon="sap-icon://home" type="Transparent" press="handlePressConfiguration">
+					<layoutData>
+						<OverflowToolbarLayoutData/>
+					</layoutData>
+				</Button>-->
+						<ToolbarSpacer width="50%"/>
+						<Title text="{i18n>launchpad}" level="H4" titleStyle="H4">
+							<layoutData>
+								<OverflowToolbarLayoutData/>
+							</layoutData>
+						</Title>
+						<ToolbarSpacer/>
+						<Button text="{fiscalModel>/status}" type="Transparent"/>
+						<Button text="Notification" icon="sap-icon://message-popup" type="Transparent"/>
+						<Button text="{userData>/loggedinUser}" icon="sap-icon://customer" type="Transparent" press="onUserNamePress"/>
+					</tnt:ToolHeader>
+				</tnt:header>
+				<!--<tnt:sideContent>
+			<tnt:SideNavigation id="lPsideNavigation" expanded="false">
+				<tnt:item>
+					<tnt:NavigationList id="olPListId" mode="SingleSelectMaster" itemSelect="OnListpress" items="{path:'launchPadSideModel>/titleMenu',templateShareable:'true'}" class="buttonColor">
+						<tnt:items>
+							<tnt:NavigationListItem text="{launchPadSideModel>title}" items="{path:'launchPadSideModel>Properties',templateShareable:'true'}" press="OnListpress" icon="{launchPadSideModel>icon}">
+								<tnt:NavigationListItem text="{launchPadSideModel>property}"/>
+							</tnt:NavigationListItem>
+						</tnt:items>
+					</tnt:NavigationList>
+				</tnt:item>
+			</tnt:SideNavigation>
+		</tnt:sideContent>-->
+				<tnt:mainContents>
+					<NavContainer id="pageContainer" initialPage="page2">
+						<pages>
+							<ScrollContainer id="page2" horizontal="false" vertical="true" height="100%">
+								<Panel class="panel marginTop">
+									<content>
+										<Panel class="panel">
+											<content>
+												<GenericTile press="onMaterialMaster" frameType="OneByOne" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myStyle"
+													header="{i18n>materialMaster}" subheader="{i18n>materials}">
+													<TileContent>
+														<ImageContent src="sap-icon://activity-items"/>
+														<NumericContent value="{totalModel>/totalValue}"/>
+													</TileContent>
+												</GenericTile>
+												<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>customerMaster}" subheader="{i18n>customers}"
+													press="onCustomerMaster">
+													<TileContent >
+														<NumericContent value="{totalCustomerModel>/totalCustomerValue}"/>
+													</TileContent>
+												</GenericTile>
+												<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout whiteText posTile" header="{i18n>pos}"
+													backgroundImage="images/pos_cart.jpg" frameType="TwoByOne" press="onPointOfSales">
+													<TileContent footer="">
+														<Label class="posTileDesc" text="{i18n>launchPadPOSDesc}" width="100%" id="__label0"/>
+													</TileContent>
+												</GenericTile>
+												<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout todaysSale" header="{i18n>sales}" subheader="{i18n>todaySales}" press="onSales">
+													<TileContent>
+														<!--<NumericContent value="BGN" valueColor="Good"/>-->
+														<HBox class="salesTodaySection">
+															<HBox>
+																<Label class="saleOrderDesc" text="Orders: " id="__label3"/>
+																<Label class="saleOrderDesc orderlabel" text="{todaySalesModel>/todaySales}" id="__label2"/>
+															</HBox>
+															<HBox>
+																<Label class="salePriceDesc" text="{todaySalesModel>/todayPrice} {i18n>currencyType}" width="100%" id="__label4"/>
+															</HBox>
+															<!--<HBox>
+																<Label text="{todaySalesModel>/date}" width="100%" id="__label5"/>
+															</HBox>-->
+															<HBox>
+																<Label text="{todaySalesModel>/time}" width="100%" id="__label6"/>
+															</HBox>
+														</HBox>
+														<!--<NumericContent value="{todaySalesModel>/todayPrice}" valueColor="Good"/>-->
+													</TileContent>
+												</GenericTile>
+												<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout todaysSale" header="{i18n>inv}" subheader="{i18n>todayInv}" press="onInv">
+													<TileContent>
+														<!--<NumericContent value="BGN" valueColor="Good"/>-->
+														<HBox class="salesTodaySection">
+															<HBox>
+																<Label class="saleOrderDesc" text="{i18n>invs} " id="__label20"/>
+																<Label class="saleOrderDesc orderlabel" text="{todaySalesModel>/todaySales}" id="__label22"/>
+															</HBox>
+															<HBox>
+																<Label class="salePriceDesc" text="{todaySalesModel>/todayPrice} {i18n>currencyType}" width="100%" id="__label23"/>
+															</HBox>
+															<!--<HBox>
+																<Label text="{todaySalesModel>/date}" width="100%" id="__label5"/>
+															</HBox>-->
+															<HBox>
+																<Label text="{todaySalesModel>/time}" width="100%" id="__label24"/>
+															</HBox>
+														</HBox>
+														<!--<NumericContent value="{todaySalesModel>/todayPrice}" valueColor="Good"/>-->
+													</TileContent>
+												</GenericTile>
+												<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>promotions}" subheader="{i18n>promotions}"
+													press="press">
+													<TileContent>
+														<ImageContent src="sap-icon://activate"/>
+													</TileContent>
+												</GenericTile>
+												<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout posTile" header="{i18n>settings}"
+													backgroundImage="images/Pos_data.jpg" frameType="TwoByOne" press="onSettingsDashboard">
+													<TileContent footer="">
+														<Label class="posTileDesc" text="{i18n>launchPadSetDesc}" width="100%" id="__label1"/>
+														<!--<FeedContent contentText=" " subheader=" " value=" "/>-->
+														<!--<ImageContent src="sap-icon://synchronize" class="sapUiLargeMarginBegin"/>-->
+													</TileContent>
+												</GenericTile>
+												<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>inventory}" subheader="{i18n>inventory}"
+													press="onInventory">
+													<TileContent>
+														<ImageContent src="sap-icon://inventory"/>
+													</TileContent>
+												</GenericTile>
+												<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>return}" subheader="{i18n>return}" press="onReturn">
+													<TileContent>
+														<NumericContent value="0.00" valueColor="Error"/>
+													</TileContent>
+												</GenericTile>
+												<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>purchasing}" subheader="{i18n>purchasing}"
+													press="onPurchasing">
+													<TileContent>
+														<ImageContent src="sap-icon://credit-card"/>
+													</TileContent>
+												</GenericTile>
+												<m:GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>reports}" subheader="{i18n>reports}" press="press"
+													frameType="OneByOne">
+													<m:tileContent>
+														<m:TileContent >
+															<m:content>
+																<mi:ColumnMicroChart size="Responsive">
+																	<mi:columns>
+																		<mi:ColumnMicroChartData value="65" color="Good"/>
+																		<mi:ColumnMicroChartData value="-20" color="Error"/>
+																		<mi:ColumnMicroChartData value="15" color="Neutral"/>
+																	</mi:columns>
+																</mi:ColumnMicroChart>
+															</m:content>
+														</m:TileContent>
+													</m:tileContent>
+												</m:GenericTile>
+											</content>
+										</Panel>
+									</content>
+									<layoutData>
+										<l:GridData span="L12"/>
+									</layoutData>
+								</Panel>
+							</ScrollContainer>
+						</pages>
+					</NavContainer>
+				</tnt:mainContents>
+			</tnt:ToolPage>
+			<!--	<Page title="{i18n>title}" showHeader="false" class="launchpadPage">
+		<subHeader>
+			<Toolbar>
+				<Bar>
+					<contentLeft>
+						<Button icon="sap-icon://nav-back" press="onBackLogin"/>
+						<Title text="{i18n>title}"/>
+					</contentLeft>
+					<contentMiddle>
+						<mvc:XMLView viewName="PosClient.view.HeaderActions"/>
+					</contentMiddle>
+					<contentRight>
+						<mvc:XMLView viewName="PosClient.view.LanguageBox"/>
+					</contentRight>
+				</Bar>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<l:Grid defaultSpan="L12 M12 S12" class="marginTop" hSpacing="0">
+				<l:content>
+					<Panel class="panel marginTop">
+						<content>
+							<Panel class="panel">
+								<content>
+									<GenericTile press="onMaterialMaster" frameType="OneByOne" class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myStyle"
+										header="{i18n>materialMaster}" subheader="Materials">
+										<TileContent>
+											<ImageContent src="sap-icon://activity-items"/>
+											<NumericContent value="{totalModel>/totalValue}"/>
+										</TileContent>
+									</GenericTile>
+									<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>customerMaster}" subheader="Customers"
+										press="onCustomerMaster">
+										<TileContent >
+											<NumericContent value="{totalCustomerModel>/totalCustomerValue}"/>
+										</TileContent>
+									</GenericTile>
+									<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout whiteText posTile" header="POS" backgroundImage="images/POS.jpg"
+										frameType="TwoByOne" press="onPointOfSales">
+										<TileContent footer="">
+											<Label class="posTileDesc" text="{i18n>launchPadPOSDesc}" width="100%" id="__label0"/>
+										</TileContent>
+									</GenericTile>
+									<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>sales}" subheader="Sales">
+										<TileContent>
+											<NumericContent value="0.00" valueColor="Good"/>
+										</TileContent>
+									</GenericTile>
+									<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>promotions}" subheader="Promotions" press="press">
+										<TileContent>
+											<ImageContent src="sap-icon://activate"/>
+										</TileContent>
+									</GenericTile>
+									<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout " header="Data Sync" frameType="TwoByOne" press="press">
+										<TileContent footer="">
+											<FeedContent contentText=" " subheader=" " value=" "/>
+											<ImageContent src="sap-icon://synchronize" class="sapUiLargeMarginBegin"/>
+										</TileContent>
+									</GenericTile>
+									<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>inventory}" subheader="Inventory">
+										<TileContent>
+											<ImageContent src="sap-icon://inventory"/>
+										</TileContent>
+									</GenericTile>
+									<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>return}" subheader="{i18n>return}" press="press">
+										<TileContent>
+											<NumericContent value="0.00" valueColor="Error"/>
+										</TileContent>
+									</GenericTile>
+									<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>purchasing}" subheader="Purchasing">
+										<TileContent>
+											<ImageContent src="sap-icon://credit-card"/>
+										</TileContent>
+									</GenericTile>
+									<m:GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>reports}" subheader="Reports" press="press"
+										frameType="OneByOne">
+										<m:tileContent>
+											<m:TileContent >
+												<m:content>
+													<mi:ColumnMicroChart size="Responsive">
+														<mi:columns>
+															<mi:ColumnMicroChartData value="65" color="Good"/>
+															<mi:ColumnMicroChartData value="-20" color="Error"/>
+															<mi:ColumnMicroChartData value="15" color="Neutral"/>
+														</mi:columns>
+													</mi:ColumnMicroChart>
+												</m:content>
+											</m:TileContent>
+										</m:tileContent>
+									</m:GenericTile>
+								</content>
+							</Panel>
+						</content>
+						<layoutData>
+							<l:GridData span="L12"/>
+						</layoutData>
+					</Panel>
+				</l:content>
+			</l:Grid>
+		</content>
+	</Page>-->
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,25 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="PosClient.controller.SettingsView">
+	<App>
+		<pages>
+			<Page title="Settings and Configurations" class="launchpadPage">
+				<content>
+				    <HBox width="100%" id="__hbox0">
+				        
+				    <items>
+				        
+				        <StandardTile press="showCreateDialog" title="Connectivity" info="Not Connected" icon="sap-icon://disconnected" activeIcon="sap-icon://customer" infoState="Error" id="__tile0"/>
+				        
+				        <StandardTile press="showStoreDialog" title="Store Information" info="Not Selected" icon="sap-icon://retail-store-manager" activeIcon="sap-icon://customer" infoState="Error" id="__tile1"/>
+				        
+				        <StandardTile press="showEmployeeDialog" title="Employee" info="Not Selected" icon="sap-icon://employee-pane" activeIcon="sap-icon://customer" infoState="Error" id="__tile3"/>
+				        
+				        <StandardTile press="showConfigDialog" title="{i18n>config}" info="{i18n>notconfig}" icon="sap-icon://settings" activeIcon="sap-icon://customer" infoState="Success" id="__tile4"/>
+				        
+				    </items>
+				        
+				    </HBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

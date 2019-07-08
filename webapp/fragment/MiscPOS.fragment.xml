@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<f:SimpleForm maxContainerCols="3" title="{i18n>addMiscellaneousCharge}" editable="true" layout="ResponsiveGridLayout" labelSpanL="6"
+		labelSpanM="6" emptySpanL="0" emptySpanM="0" columnsL="3" columnsM="3">
+		<f:content>
+			<core:Title text=""/>
+			<Input id="idProduct" placeholder = "{i18n>productDescription}" required = "true"/>
+			<!--<TextArea placeholder = "{i18n>productDescription}" required = "true"/>-->
+			<core:Title text=""/>
+			<Label text="{i18n>eanNumber}"/>
+			<Input id="idEan"/>
+			<Label text="{i18n>quantity}"/>
+			<Input id="idQuantity" required = "true" type = "Number"/>
+			<Label text="{i18n>price}" required = "true"/>
+			<Input id="idPrice" required = "true" type = "Number"/>
+			<core:Title text=""/>
+			<Label text="{i18n>supplier}"/>
+			<Input id="idSupplier"/>
+			<!--<Label/>-->
+			<!--<Label/>-->
+			<!--<Label/>-->
+			<Label text="{i18n>measure}"/>
+			<Input id="idUoM" required = "true"/>
+			<Label text="{i18n>priceunit}"/>
+			<Input id="idPriceUnit" required = "true"/>
+			<!--<Label text="{i18n>employee}"/>-->
+			<!--<Select forceSelection="false" selectedKey="" items="{ path: '/' }">-->
+			<!--	<core:Item key="{ProductId}" text="{Name}"/>-->
+			<!--</Select>-->
+		</f:content>
+	</f:SimpleForm>
+	<HBox class="sapUiLargeMarginBegin">
+		<Button text="{i18n>save}" press="onMiscSubmit"/>
+		<Button text="{i18n>cancel}" press="onMiscCancel" class="sapUiSmallMarginBegin"/>
+	</HBox>
+</core:FragmentDefinition>

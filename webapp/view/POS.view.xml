@@ -1,0 +1,222 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.ui.layout.form" xmlns="sap.m" xmlns:u="sap.ui.unified"
+	xmlns:table="sap.ui.table" xmlns:l="sap.ui.layout" controllerName="PosClient.controller.POS" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page enableScrolling="false" showHeader="false" class="posbgColor">
+		<core:Fragment fragmentName="PosClient.fragment.TopBar" type="XML"/>
+		<!--<subHeader >
+			<Toolbar >
+				<Bar >
+					<core:Fragment fragmentName="PosClient.fragment.TopBar" type="XML"/>
+				</Bar>
+			</Toolbar>t
+		</subHeader>-->
+		<content>
+			<VBox class="dockRight">
+				<HBox class="subtotalForm">
+					<l:FixFlex class="fixFlexFixedSize totalSum" fixContentSize="105px">
+						<l:fixContent >
+							<f:Form id="FormDisplay354" editable="false">
+								<f:layout>
+									<f:ResponsiveGridLayout class="totFormElement" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+										emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="2" columnsM="2" singleContainerFullSize="false"/>
+								</f:layout>
+								<f:formContainers>
+									<f:FormContainer>
+										<f:formElements>
+											<f:FormElement label="{i18n>subtotal}" class="sapUiSmallMarginTop">
+												<f:fields >
+													<Text text="{posTableModel>/total}" id="nameText"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>discounts}" class="sapUiSmallMarginTop">
+												<f:fields>
+													<Text text="{posTableModel>/discountTotal}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>tax}" class="sapUiSmallMarginTop">
+												<f:fields>
+													<Text text="{pushModel>konwa} {posTableModel>/tax}"/>
+												</f:fields>
+											</f:FormElement>
+											<f:FormElement label="{i18n>totitems}" class="sapUiSmallMarginTop">
+												<f:fields>
+													<Text text="{=${pushModel>/}.length}"/>
+												</f:fields>
+											</f:FormElement>
+										</f:formElements>
+									</f:FormContainer>
+								</f:formContainers>
+							</f:Form>
+						</l:fixContent>
+					</l:FixFlex>
+				</HBox>
+				<VBox class="totalSum sapULargeMarginTop">
+					<Title class="totalLabel" titleStyle="H4" text="{i18n>total} "/>
+					<Text class="totalBoldText" text="{posTableModel>/finalTotal} BGN"/>
+				</VBox>
+				<VBox class="dockText">
+					<HBox class="sapUiSmallMarginTop">
+						<!--<Button icon="sap-icon://save" text="{i18n>saveAsQuote}" class="docRightBtn largeTxt actionBtn"></Button>-->
+						<Button icon="sap-icon://reset" text="{i18n>cancelSale}" class="docRightBtn mediumTxt actionBtn" press="onCusRemove"></Button>
+						<Button icon="sap-icon://waiver" text="{i18n>applyDiscount}" press="onDiscountOpen" class="actionBtn docRightBtn"></Button>
+						<!--<ToggleButton icon="sap-icon://simulate" text="NumberPad" class="actionBtn docRightBtn largeTxt" press="showNumpad"></ToggleButton>-->
+					</HBox>
+					<HBox>
+						<Button icon="sap-icon://money-bills" text="Cash" press="onCashPress" class="actionBtn docRightBtn smallTxt">
+							<customData>
+								<core:CustomData key="C" value="C"/>
+							</customData>
+						</Button>
+						<Button icon="sap-icon://credit-card" text="Card" press="onCardPress" class="actionBtn docRightBtn smallTxt">
+							<customData key="CA" value="CA"></customData>
+						</Button>
+						<!--<Button icon="sap-icon://waiver" text="{i18n>applyDiscount}" press="onDiscountOpen" class="actionBtn docRightBtn"></Button>-->
+						<!--	<Button icon="sap-icon://collections-insight" text="Exchange" class="actionBtn docRightBtn largeTxt"></Button>-->
+					</HBox>
+					<HBox>
+						<Button icon="sap-icon://batch-payments" text="Mixed" press="onMixedPress" class="actionBtn docRightBtn smallTxt">
+							<customData key="M" value="M"></customData>
+						</Button>
+						<ToggleButton icon="sap-icon://add-coursebook" text="{i18n>misc}" class="actionBtn docRightBtn mediumTxt " press="onPressItemMisc"></ToggleButton>
+						<!--<Button icon="sap-icon://waiver" text="{i18n>applyDiscount}" press="onDiscountOpen" class="actionBtn docRightBtn"></Button>-->
+						<!--	<Button icon="sap-icon://collections-insight" text="Exchange" class="actionBtn docRightBtn largeTxt"></Button>-->
+					</HBox>
+					<HBox class="sapUiSmallMarginTop">
+						<!--<Button icon="sap-icon://save" text="{i18n>saveAsQuote}" class="docRightBtn largeTxt actionBtn"></Button>-->
+						<Button icon="sap-icon://print" text="{i18n>receipt}" press="onPrintForm" class="actionBtn docRightBtn smallTxt" visible="false"></Button>
+						<Button icon="sap-icon://print" text="{i18n>invoice}" press="onPrintForm" class="actionBtn docRightBtn smallTxt" visible="true" ></Button>
+						<!--<ToggleButton icon="sap-icon://simulate" text="NumberPad" class="actionBtn docRightBtn largeTxt" press="showNumpad"></ToggleButton>-->
+					</HBox>
+					<!--<HBox>-->
+					<!--	<ToggleButton icon="sap-icon://receipt" text="{i18n>note}" class="actionBtn docRightBtn mediumTxt" press="onNotePress"></ToggleButton>-->
+					<!--	<ToggleButton icon="sap-icon://flight" text="{i18n>ship}" class="actionBtn docRightBtn mediumTxt" press="onShipPress"></ToggleButton>-->
+					<!--</HBox>-->
+					<!--<HBox>
+						<ToggleButton icon="sap-icon://add-coursebook" text="{i18n>misc}" class="actionBtn docRightBtn mediumTxt " press="onPressItemMisc"></ToggleButton>
+
+					</HBox>-->
+				</VBox>
+				<!--<core:Fragment fragmentName="PosClient.fragment.NumberPadPOS" type="XML"/>-->
+			</VBox>
+			<VBox class="leftSpacing ">
+				<Toolbar height="auto">
+					<Input id="productInput" type="Text" value="{selectedModel>/selectedCustomer}" placeholder="Scan or Enter Customer Id" showValueHelp="true"
+						valueHelpRequest="onCustomerSearch" enabled="{enablePOSModel>/customer}" width="15rem"
+						submit="handleClose" liveChange="handleSuggestCustomer" suggestionItemSelected="handleClose" 
+					showSuggestion="true" suggestionItems="{ path: 'posCusModel>/items'}"
+						>
+						<suggestionItems>
+						<core:Item text="{posCusModel>partner} - {posCusModel>name_org}" key="{posCusModel>partner}"/>
+					</suggestionItems>
+					</Input>
+					<Button class="sapUiSmallMarginBegin" text="{i18n>new}" icon="sap-icon://add" visible="{posBtnVisibleModel>/cusNew}" press="onNewPress"/>
+					<Button class="sapUiSmallMarginBegin" text="{i18n>edit}" icon="sap-icon://edit" visible="{posBtnVisibleModel>/cusEdit}"/>
+					<Label class="sapUiSmallMarginBegin" text="{i18n>vatID}"/>
+					<Label class="sapUiTinyMarginBegin sapUiTinyMarginEnd" text="{selectedModel>/selectedVatID}"/>
+					<ToggleButton icon="sap-icon://receipt" text="{i18n>note}" class="sapUiSmallMarginBegin smallTxt docRightBtn customerButtonSpacing"
+						press="onNotePress"></ToggleButton>
+					<ToggleButton icon="sap-icon://flight" text="{i18n>ship}" class="sapUiTinyMarginBegin smallTxt docRightBtn" press="onShipPress"></ToggleButton>
+					<Button icon="sap-icon://shipping-status" text="{i18n>homeDelivery}" class="sapUiTinyMarginBegin actionBtn docRightBtn finalPaymentRightBtn"></Button>
+					<!--<ToggleButton class="sapUiSmallMarginBegin" text="{i18n>note}" visible="{posBtnVisibleModel>/cusNote}" press="onNotePress"/>-->
+					<!--<ToggleButton class="sapUiSmallMarginBegin" text="{i18n>ship}" visible="{posBtnVisibleModel>/cusShip}" press="onShipPress"/>-->
+				</Toolbar>
+				<VBox visible="{posBtnVisibleModel>/notePOSFragment}">
+					<core:Fragment fragmentName="PosClient.fragment.NotePOS" type="XML"/>
+				</VBox>
+				<VBox visible="{posBtnVisibleModel>/shipFragment}">
+					<core:Fragment fragmentName="PosClient.fragment.ShipPOS" type="XML"/>
+				</VBox>
+			</VBox>
+			<Toolbar class="leftSpacing matSpacing " height="auto" visible="{posBtnVisibleModel>/materialSpace}">
+				<!--<Input class="sapUiSmallMarginBegin" value="{selectedModel>/selectedMaterial}" editable="false" placeholder="{i18n>item}" width="25%"/>-->
+				<Input id="MaterialInput" type="Text" value="{selectedModel>/selectedMaterial}" placeholder="Enter Material ..." showValueHelp="true"
+					valueHelpRequest="onMaterial" submit="handleSuggestionMaterialSelected" liveChange="handleSuggest" suggestionItemSelected="handleSuggestionMaterialSelected" enabled="{enablePOSModel>/material}" width="15rem"
+					showSuggestion="true" suggestionItems="{ path: 'materialModel>/items'}" class="sapUiSmallMarginBegin">
+					<suggestionItems>
+						<core:Item text="{materialModel>productID} - {materialModel>eanNumber}" key="{materialModel>productID}"/>
+					</suggestionItems>
+				</Input>
+				<!--<Button text="{i18n>search}" icon="sap-icon://search"/>-->
+				<!--<Button text="{i18n>new}" icon="sap-icon://add" press="onNewMaterial"/>-->
+				<!--<ToggleButton class="sapUiSmallMarginBegin" text="{i18n>misc}" press="onPressItemMisc"/>-->
+				<!--<CheckBox text="{i18n>tax}" select="onPressTax" selected="true" id="idTaxCheckBox"/>-->
+				<!--<ComboBox visible="{posBtnVisibleModel>/taxDropDown}" id="idTaxComboBox" change="onTaxChange"-->
+				<!--	items="{ path: 'taxModel>/items', sorter: { path: 'text1_e' } }">-->
+				<!--	<core:Item key="{taxModel>vatrate}" text="{taxModel>text1_e}"/>-->
+				<!--</ComboBox>-->
+				<ComboBox id="idTaxComboBox" change="onTaxChange" items="{ path: 'taxModel>/items', sorter: { path: 'text1_e' } }">
+					<core:Item key="{taxModel>vatrate}" text="{taxModel>text1_e}"/>
+				</ComboBox>
+				
+				<!--<Button icon="sap-icon://save" text="{i18n>saveAsQuote}" class="sapUiSmallMarginBegin docRightBtn largeTxt"/>-->
+				<!--<ToggleButton icon="sap-icon://add-coursebook" text="{i18n>misc}" class="sapUiTinyMarginBegin docRightBtn smallTxt" press="onPressItemMisc"></ToggleButton>-->
+			</Toolbar>
+			<VBox class="miscFrag" visible="{posBtnVisibleModel>/miscPOSFragment}">
+				<core:Fragment fragmentName="PosClient.fragment.MiscPOS" type="XML"/>
+			</VBox>
+			<l:FixFlex class="fixFlexFixedSize leftSpacing" fixContentSize="500px">
+				<l:fixContent >
+					<ScrollContainer height="100%" width="95%" vertical="true" focusable="true">
+						<Table inset="false" items="{ path: 'pushModel>/' }" visible="{posBtnVisibleModel>/tableSpace}">
+							<columns>
+								<Column hAlign="Center" width="28em">
+									<Text text="{i18n>productDescription}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>unitPrice}"/>
+								</Column>
+								<Column hAlign="Center" width="5rem">
+									<Text text="{i18n>quantity}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>salesUnit}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>discount}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>tax}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>total}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>action}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem vAlign="Middle" press="onMaterialMasterListPress">
+									<cells>
+										<!--<core:Icon src="sap-icon://decline" class="size1" color="#A52A2A" tooltip="{i18n>delete}" press="onItemDelete" />-->
+										<!--<Button icon="sap-icon://decline" tooltip="{i18n>delete}" press="onItemDelete" />	-->
+										<Text text="{pushModel>maktx_l} / {pushModel>matnr}"/>
+										<Text text="{pushModel>kbetr}"/>
+										<Input width="60px" value="{pushModel>kpein}" change="onQuantityChange"/>
+										<Text text="{pushModel>kmein}"/>
+										<!--<Text text="{materialTableModel>priceUnit}"/>-->
+										<Input width="60px" value="{pushModel>discount}" change="onDiscountChange"/>
+										<!--	<Text text="{pushModel>lineItemTax}" />-->
+										<!-- Adding tax text in table level  @Arjun -->
+										<Text text=" {pushModel>taxAmount}"></Text>
+										<!--<VBox items="{ path: 'materialTableModel>/items' }">-->
+										<HBox>
+											<!--	<Title text="{pushModel>konwa}"/>-->
+											<!--	<Title class="sapUiTinyMarginBegin" text="{pushModel>lTotal}"/>-->
+											<!-- Keeping sub total property for item sub total  @Arjun -->
+											<Title class="sapUiTinyMarginBegin" text="{pushModel>itemSubTotal}"/>
+										</HBox>
+										<core:Icon class="delIconColor" src="sap-icon://delete" press="onProductsDelete"></core:Icon>
+										<!--</VBox>-->
+										<!---->
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+				</l:fixContent>
+			</l:FixFlex>
+		</content>
+		<footer>
+			<core:Fragment fragmentName="PosClient.fragment.FooterBar" type="XML"/>
+		</footer>
+	</Page>
+</mvc:View>

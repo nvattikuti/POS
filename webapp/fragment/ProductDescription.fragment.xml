@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:u="sap.ui.unified">
+	<SelectDialog noDataText="{i18n>ProductDescriptionNotFound}" title="{i18n>selectProductDescriptions}" search="onPriceIdSearch"
+		liveChange="onProductDescriptionSearch" confirm="onProductDescriptionConfirm" multiSelect="true" rememberSelections="true"
+		 items="{ path: 'listModel>/items'}" id="idProductDescriptionValueHelp">
+		<StandardListItem title="{listModel>productDescription}" type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

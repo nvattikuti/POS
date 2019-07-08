@@ -1,0 +1,782 @@
+/* Login Page CSS */
+
+.pageContainer {
+    background: url('../images/posLogon.jpg') no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+.pageContainer .loginMainContainer {
+    margin-top: 3rem;
+}
+
+.pageContainer .sapMIBar.sapMHeader-CTX {
+    background: transparent;
+    box-shadow: none;
+}
+
+.pageContainer .sapMIBar.sapMHeader-CTX .sapMTitle {
+    font-size: 150%;
+    color: #fff;
+}
+
+.pageContainer .loginActionBox {
+    margin-top: 2rem;
+}
+
+.pageContainer .sapUiFormM,
+.pageContainer .loginActionBox .sapMBtn {
+    width: 30%;
+    display: inline-block;
+}
+
+.pageContainer .languageSelect {
+    border-radius: 10px;
+    background: transparent;
+    border: none;
+}
+
+.pageContainer .languageSelect:hover {
+    background: transparent;
+    border: 1px solid #fff;
+}
+
+.pageContainer .languageSelect label,
+.pageContainer .languageSelect span {
+    color: #fff;
+}
+
+.pageContainer .languageSelect.sapMSltExpanded {
+    border-radius: 5px 5px 0 0;
+    border: 1px solid #fff;
+}
+
+.pageContainer .loginActionBox .sapMBtn {
+    padding: 1rem;
+}
+
+.pageContainer .loginActionBox .sapMBtn .sapMBtnInner {
+    border-radius: 0;
+    border: none;
+}
+
+.pageContainer .loginActionBox .logOnBtn .sapMBtnInner {
+    background-color: deepskyblue;
+    color: #fff;
+}
+
+.pageContainer .loginActionBox .changePwdBtn .sapMBtnInner {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+@media (max-width: 480px) {
+    .pageContainer .sapUiFormM,
+    .pageContainer .loginActionBox .sapMBtn {
+        width: 100%;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .pageContainer .sapUiFormM,
+    .pageContainer .loginActionBox .sapMBtn {
+        width: 60%;
+    }
+}
+
+
+/*Launch Pad*/
+
+.pageContainer .launchGrid.sapUiRespGrid {
+    margin-top: 3rem;
+}
+
+.pageContainer .launchGrid.sapUiRespGrid .sapUiRespGridSpanL3:nth-child(odd) li {
+    background: #8edffd;
+}
+
+.pageContainer .launchGrid.sapUiRespGrid .sapUiRespGridSpanL3:nth-child(even) li {
+    background: #e0f5fd;
+}
+
+.iconSize {
+    font-size: 50px;
+}
+
+.panleDark {
+    background: #BBD0E6;
+}
+
+.panleLight {
+    background: #D5E2EF;
+}
+
+.cursor,
+.cursor .v-m-root {
+    cursor: pointer;
+}
+
+.launchpadPage {
+    background: url('../images/Launch.jpg') no-repeat;
+    background-size: cover;
+}
+
+.posBlueTbl .sapMListTbl td {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.posBlueTbl .sapMListTbl th {
+    background-color: #0f1e6a;
+}
+
+.posBlueTbl .sapMListTbl th span {
+    color: #fff;
+}
+
+.posBlueTbl .sapMListTbl {
+    box-shadow: 0px 4px 10px #333;
+    border: 1px solid #0f1e6a;
+}
+
+.launchpadPage .marginTop {
+    margin-top: 1rem;
+}
+
+.launchpadPage .posTile {
+    background-size: cover;
+}
+
+.launchpadPage .posTile .sapMFrameTypeAuto {
+    background: #113949;
+    opacity: .8;
+}
+
+.launchpadPage .posTile .posTileDesc {
+    color: #fff;
+    white-space: normal;
+    padding: .5rem 0;
+}
+
+.posPage .sapMPanelContent {
+    padding: 0;
+}
+
+.posPage .posMainGrid {
+    padding: 0;
+    /*background: #fff;*/
+}
+
+.salesTodaySection .saleOrderDesc {
+    float: left;
+}
+
+.salesTodaySection .saleOrderDesc.orderlabel {
+    color: orange;
+}
+
+.todaysSale .sapMGTSubHdrTxt {
+    color: orange;
+}
+
+.salesTodaySection .salePriceDesc {
+    color: green;
+    font-size: 1.5rem;
+}
+
+.posPage .posMainGrid.sapUiRespGridHSpace1>div {
+    margin: 0;
+}
+
+.posPage .sapUiRespGridMedia-Std-LargeDesktop.sapUiRespGridHSpace1>.sapUiRespGridSpanXL9 {
+    width: calc(75%);
+}
+
+.posPage .sapUiRespGridMedia-Std-LargeDesktop.sapUiRespGridHSpace1>.sapUiRespGridSpanXL3 {
+    width: calc(25%);
+}
+
+.posPage .posSearchHeaderTop {
+    /*	 background: url('../images/POS_backImage.jpg') no-repeat;
+	 background-size: cover;
+	text-align: center;
+	border-bottom: none;*/
+    /* box-shadow: 1px 1px 3px 1px #6b7180 inset;
+    background-color: #dededf;*/
+    height: 4rem;
+    border-bottom: none;
+}
+
+.posPage .posSearchHeaderBottom {
+    /*background: url('../images/POS_backImage.jpg') no-repeat;
+	 background-size: cover;
+	text-align: center;
+	border-bottom: none;*/
+    /*box-shadow: 1px 1px 3px 1px #61824c inset;
+    background-color: #c2e1a6;*/
+    height: 4rem;
+    border-bottom: none;
+}
+
+.posPage .sapMListTbl {
+    border: 1px solid #e5e5e5;
+}
+
+.posPage .posTotalBox {
+    padding: 1rem;
+}
+
+.posPage .posTotalBox .sapMFlexItem:first-child .sapMIBar {
+    border: none;
+}
+
+.posPage .posTotalActionBox {
+    padding: 1rem;
+}
+
+.posPage .posTotalActionBox .posTotalBtn {
+    width: 100%;
+    margin: 0.5rem 0;
+}
+
+.posPage .posTotalActionBox .posTotalBtn .sapMBtnDefault {
+    box-shadow: 1px 1px 3px 1px #d3d3d3;
+    color: #222;
+    background: #fff;
+}
+
+.posPage .posTotalActionBox .posPaymentBtn.posTotalBtn .sapMBtnDefault {
+    color: #fff;
+    background: green;
+}
+
+.headerActions .sapMFlexItem {
+    padding: 0 0.5rem;
+}
+
+.headerActions .sapMFlexItem .sapUiIcon::before {
+    cursor: pointer;
+    color: #346187;
+}
+
+.panel,
+.sapMPanelContent:not(.sapMPanelBGTransparent),
+.toolbarbottamdesign {
+    border-bottom-style: none!important
+}
+
+.whiteText {
+    color: #FFF!important
+}
+
+.marginTop .sapMPanelContent:not(.sapMPanelBGTransparent),
+.toolbarbottamdesign {
+    margin-top: -0.8rem;
+    margin-botom: -0.5rem;
+}
+
+.whiteText .sapMGTHdrTxt>.sapMText {
+    color: #FFF;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+    .launchpadPage .sapUiContentPadding,
+    .launchpadPage .sapMPanelContent {
+        padding: 0;
+    }
+    .launchpadPage .sapUiTinyMarginTop {
+        margin-top: 0 !important;
+        margin-left: 0 !important;
+    }
+    .launchpadPage .OneByOne {
+        width: 50%;
+        height: auto;
+    }
+    .launchpadPage .sapMGT.TwoByOne {
+        width: 100%;
+        height: auto;
+        /*margin-bottom: 0.5rem;*/
+    }
+    .launchpadPage .marginTop {
+        margin-top: 0;
+    }
+    .launchpadPage .marginTop .sapMPanelContent:not(.sapMPanelBGTransparent),
+    .launchpadPage .toolbarbottamdesign {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .launchpadPage .sapMVBox {
+        display: none;
+    }
+}
+
+.bgWhite {
+    /*background: #fff !important;*/
+    /*background: url('../images/POS_backImage.jpg') no-repeat;
+	 background-size: cover;
+	text-align: center;
+	border-bottom: none;*/
+}
+
+
+/*.panel .sapMPanelContent {
+    padding: 0!important
+}*/
+
+.posSf {
+    font-size: 0.85rem;
+}
+
+.columns .sapUiFormEdit .sapMText {
+    display: block;
+    min-height: 2rem;
+    line-height: 1.375rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.posIconFontSize {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.calculatorBtHeight {
+    height: 5.5rem;
+}
+
+.posFormIconFontSize {
+    font-size: 1.75rem;
+}
+
+.btnIcon {
+    background: #0169E3;
+}
+
+.btnIconText {
+    color: #fff;
+}
+
+.posLightTitleBlue {
+    background: #5194AB;
+}
+
+.posLightBlue {
+    background: #1582A9;
+}
+
+.posTotalOneHBox {
+    background: #1D6E89;
+}
+
+.posTotalTwoHBox {
+    background: #2D566C;
+}
+
+.posLightTitleBlue .sapMListTbl th {
+    background: #5194AB !important;
+}
+
+.toolbarbottamdesign {
+    border-bottom-style: none!important
+}
+
+.backPOS {
+    background: url('../images/POS_backImage.jpg') no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+.posButtons .sapMBtnInner {
+    background: #0F1E6A !important;
+    color: #FFFFFF !important;
+}
+
+.connectivityDialogSubmit {
+    padding: 1rem;
+}
+
+.connectivityDialogSubmit .sapMFlexItem,
+.connectivityDialogSubmit button {
+    width: 100%;
+}
+
+.connectivityDialogSubmit .sapMSltDefault {
+    width: 100% !important;
+}
+
+.connectivityDialogSubmit button .sapMBtnInner,
+.connectivityDialogSubmit button .sapMBtnInner:hover {
+    border: none;
+    border-radius: 0;
+}
+
+.connectivityDialogSubmit .btn-submit .sapMBtnInner,
+.connectivityDialogSubmit .btn-submit .sapMBtnInner:hover {
+    background-color: deepskyblue;
+    color: #fff;
+}
+
+
+/* POS Screen view - Start*/
+
+.dockRight {
+    float: right !important;
+    height: auto;
+    width: 16% !important;
+}
+
+.leftSpacing {
+    float: left !important;
+    margin: 20px 0 0 20px !important;
+    border-bottom: none !important;
+    width: 80% !important;
+}
+
+.leftSpacing .sapMTB {
+    border-bottom: none !important;
+}
+
+.leftSpacing table {
+    width: 99% !important;
+    border: 1px solid #ccc;
+    color: #fff;
+    background-color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f0f0f0;
+    color: #fff;
+}
+
+.delIconColor {
+    color: black;
+}
+
+.totalForm {
+    height: 130px !important;
+    margin-top: 20px;
+}
+
+.matSpacing {
+    margin-left: 8px !important;
+}
+
+.miscFrag {
+    float: left !important;
+}
+
+.tableTotalHighlight {
+    background: #CCC !important;
+}
+
+.valBtn {
+    width: 40px !important;
+}
+
+.numberpad {
+    margin-top: 5px;
+}
+
+.docRightBtn {
+    border-radius: 50%;
+    width: 90px !important;
+    margin: 8px 12px 0 1px !important;
+    padding: 0 4px 0 0 !important;
+    height: 65px !important;
+}
+
+.docRightBtn span.sapMBtnInner {
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 62px;
+}
+
+.docRightBtn .sapMBtnText>.sapMBtnIcon {
+    position: absolute;
+    left: 24px;
+}
+
+.docRightBtn.smallTxt .sapMBtnContent {
+    left: 28px !important;
+}
+
+.docRightBtn.mediumTxt .sapMBtnContent {
+    left: 26px !important;
+}
+
+.docRightBtn.largeTxt .sapMBtnContent {
+    left: 11px !important;
+}
+
+.docRightBtn .sapMBtnContent {
+    text-align: left;
+    position: absolute;
+    left: 19px !important;
+    top: 22px;
+}
+
+.finalPaymentRightBtn .sapMBtnContent {
+    text-align: left;
+    position: absolute;
+    left: 0px !important;
+    top: 22px;
+}
+
+.docRightBtn span bdi {
+    overflow-wrap: break-word;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.docRightNumPad {
+    width: 100% !important;
+    margin: 0 13px 0 2px!important;
+    padding: 0 11px 0 0 !important;
+    height: 45px !important;
+}
+
+.totalLabel {
+    padding-left: 3px !important;
+    color: white !important;
+}
+
+.totalBoldText {
+    font-size: 25px !important;
+    font-weight: bold !important;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: normal;
+    color: #fff;
+    padding-left: 3px;
+}
+
+.posbgColor {
+    /*background-color: #1560BD !important;*/
+    background: url('../images/ColorPalletNew.jpg') no-repeat;
+    background-size: 100% 100%;
+}
+
+.posbgColor .sapContrast.sapTntToolHeader.sapMTB,
+.posbgColor .sapMFooter-CTX {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+}
+
+.BottomrightSpace {
+    position: absolute;
+    left: 750px !important;
+    top: 95px;
+    width: 25% !important;
+}
+
+.sapMListTblCell {
+    border-right: 1px solid #ccc !important;
+}
+
+.sapUiFormTitle {
+    height: 0 !important;
+}
+
+.rightTileBtn {
+    height: 80px !important;
+    width: 88px !important;
+    margin: 5px;
+}
+
+.rightTileBtnImg {
+    height: 15px;
+    width: 60px;
+}
+
+.dockText {
+    width: 85%;
+    height: 165px;
+}
+
+.actionBtn .sapMBtnInner {
+    background-color: #fff;
+}
+
+.rightTileBtn .sapMTextMaxLine {
+    font-size: 10px;
+    font-weight: bold;
+    color: darkblue;
+}
+
+.totalSum {
+    width: 190px !important;
+    margin: 10px 0 0 0 !important;
+    border: 1px solid #fff;
+}
+
+.totalSum .sapUiFormResGrid>div {
+    padding-left: 0 !important;
+}
+
+.totFormElement .sapUiRespGridSpanXL4,
+.totFormElement .sapUiRespGridSpanXL8 {
+    width: 50% !important;
+    padding-top: 0.25rem !important;
+}
+
+.totFormElement .sapMText,
+.totFormElement .sapMLabelDisplayOnly {
+    color: #fff !important;
+}
+
+.customerButtonSpacing {
+    margin-left: 45px !important;
+}
+
+.subtotalForm {
+    margin-bottom: 15px !important;
+}
+
+.totDisplay {
+    padding: 10px 0 10px 0;
+}
+
+.dockText .sapUiSmallMarginTop {
+    margin-top: 5px !important;
+}
+
+
+/*.sapUiFixFlexFixed {
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 150px !important;
+}*/
+
+
+/* POS Screen view - End*/
+
+
+/* Print Form Css - Start */
+@media print { 
+	.addbutton {
+		display: none;
+	}
+}	
+.printForm .boxModel {
+    height: 160px;
+    width: 50%;
+    padding: 20px;
+    border: 1px solid black;
+    background-color: red;
+}
+
+.printForm .boxHeader {
+    background-color: #ccc;
+    padding-top: 0!important;
+    width: 100%;
+}
+
+.printForm .printLogo {
+    width: 50%;
+}
+
+.printForm .topbar {
+    width: 50%;
+    float: right;
+    font-size: 14px;
+}
+
+.printForm .footerBox {
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.printForm .boxModel .sapMFlexItem {
+    width: 100% !important;
+}
+
+.printForm .boxModel .sapUiRespGridBreak,
+.printForm .boxModel .sapUiRespGridSpanS12 {
+    width: 45% !important;
+}
+
+.printForm .formTable {
+    height: 400px !important;
+}
+
+.printForm .signatureBox {
+    width: 100% !important;
+    border: 1px solid black;
+    height: 100px;
+}
+
+.printForm .customerSigBox {
+    width: 50% !important;
+    border: 1px solid black;
+}
+
+.printForm .customerSigBox .sapMInputBaseContentWrapper {
+    border: none !important;
+    width: 50% !important;
+}
+
+
+/* Print Form Css - End */
+
+
+/* Card Cash Mixed CSS - Start */
+
+.paymentForm .sapUiFormElementLbl,
+.paymentForm .sapUiRespGridSpanL7 {
+    width: 45% !important;
+    padding-top: 10px !important;
+}
+
+.paymentForm .sapMText {
+    padding-left: 10px !important;
+}
+
+#cashInput,
+#cardPayment {
+    height: 35px !important;
+}
+
+.cardPayment {
+    height: 30px;
+}
+
+.cardPayment label {
+    top: -5px;
+}
+
+.cardPayment .sapMSltArrow {
+    top: -10px;
+}
+
+#cardPayment input {
+    height: 25px;
+}
+
+.mixedTotal {
+    padding-left: 10px;
+}
+
+.mixLabel {
+    margin: 10px 29px 10px 10px;
+    padding: 10px;
+}
+
+.mixLabelVoucher {
+    margin: 10px !important;
+    padding: 10px;
+}
+
+.mixInput {
+    margin: 10px;
+}
+.mixChangeDisplay{
+	margin: 10px;
+	width: 220px;
+}
+
+
+/* Card Cash Mixed CSS - End */

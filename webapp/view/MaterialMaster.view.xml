@@ -1,0 +1,165 @@
+<mvc:View controllerName="PosClient.controller.MaterialMaster" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic" xmlns:f="sap.f" xmlns:fb="sap.ui.comp.filterbar" xmlns:vm="sap.ui.comp.variants">
+	<Page title="{i18n>materialMaster}" showHeader="false" class="launchpadPage materialListPage">
+		<subHeader >
+			<Toolbar >
+				<Bar >
+					<contentLeft>
+						<Button icon="sap-icon://nav-back" press="onBackLaunchpad"/>
+						<Title text="{i18n>materialMaster}"/>
+					</contentLeft>
+					<contentMiddle>
+						<!--<Title text="{i18n>warehouse}" class="lastRefreshedText toolbarbottamdesign warehouseFont" />-->
+						<mvc:XMLView viewName="PosClient.view.HeaderActions"/>
+					</contentMiddle>
+					<contentRight>
+					    <!--<mvc:XMLView viewName="PosClient.view.LanguageBox"/>-->
+					</contentRight>
+				</Bar>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<f:DynamicPage headerExpanded="{/headerExpanded}">
+				<!-- DynamicPage Title -->
+				<f:title>
+					<f:DynamicPageTitle>
+						<f:heading>
+							<vm:VariantManagement standardItemText="Materials"></vm:VariantManagement>
+						</f:heading>
+						<f:actions>
+							<ToolbarSpacer/>
+							<!--<Button text="Global Action" type="Transparent"/>-->
+							<!--<Button text="Toggle Footer" type="Transparent" press="onToggleFooter"/>-->
+							<!--<Button icon="sap-icon://action" type="Transparent"/>-->
+						</f:actions>
+					</f:DynamicPageTitle>
+				</f:title>
+				<!-- DynamicPage Header -->
+				<f:header>
+					<f:DynamicPageHeader pinnable="true">
+						<f:content>
+							<fb:FilterBar reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="false">
+
+								<fb:filterItems>
+					<!--				<fb:FilterItem name="A" label="{i18n>category}">
+										<fb:control>
+											<MultiInput tokens="{oFilterModel>/categoryKeys}" suggestionItems="{ path: 'listModel>/items'}" showSuggestion="true"
+												tokenUpdate="sdTokenUpdate" showValueHelp="true" valueHelpRequest="oncategoryValueHelp">
+												<suggestionItems >
+													<core:Item text="{listModel>category}" key="{listModel>category}"/>
+												</suggestionItems>
+												<tokens>
+													<Token key="{oFilterModel>key}" text="{oFilterModel>key}"/>
+												</tokens>
+											</MultiInput>
+										</fb:control>
+									</fb:FilterItem>-->
+								
+									<fb:FilterItem name="B" label="{i18n>productID}">
+										<fb:control>
+											<MultiInput tokens="{oFilterModel>/productIdKeys}" suggestionItems="{ path: 'listModel>/items'}" showSuggestion="true"
+												tokenUpdate="sdTokenUpdate" showValueHelp="true" valueHelpRequest="onProducIdValueHelp">
+												<suggestionItems >
+													<core:Item text="{listModel>productID}" key="{listModel>productID}"/>
+												</suggestionItems>
+												<tokens>
+													<Token key="{oFilterModel>key}" text="{oFilterModel>key}"/>
+												</tokens>
+												<customData>
+													<core:CustomData key="productID" value="productID"/>
+												</customData>
+											</MultiInput>
+											
+										</fb:control>
+									</fb:FilterItem>
+									<fb:FilterItem name="C" label="{i18n>productDescription}">
+										<fb:control>
+											<MultiInput tokens="{oFilterModel>/productDescriptionKeys}" suggestionItems="{ path: 'listModel>/items'}" showSuggestion="true"
+												tokenUpdate="sdTokenUpdate" showValueHelp="true" valueHelpRequest="onProductDescriptionValueHelp">
+												<suggestionItems >
+													<core:Item text="{listModel>productDescription}" key="{listModel>productDescription}"/>
+												</suggestionItems>
+												<tokens>
+													<Token key="{oFilterModel>key}" text="{oFilterModel>key}"/>
+												</tokens>
+												<customData>
+													<core:CustomData key="productDescription" value="productDescription"/>
+												</customData>
+											</MultiInput>
+										</fb:control>
+									</fb:FilterItem>
+									<fb:FilterItem name="D" label="{i18n>supplier}">
+										<fb:control>
+											<MultiInput tokens="{oFilterModel>/supplierKeys}" suggestionItems="{ path: 'listModel>/items'}" showSuggestion="true"
+												tokenUpdate="sdTokenUpdate" showValueHelp="true" valueHelpRequest="onSupplierValueHelp">
+												<suggestionItems >
+													<!--<core:Item text="listModel>supplier}" key="{listModel>supplier}"/>-->
+													<!--<core:Item text="listModel>supplier}-{listModel>sname}" key="{listModel>supplier}"/>-->
+													<core:Item text="listModel>supplier}-{listModel>sname}"/>
+												</suggestionItems>
+												<tokens>
+													<Token key="{oFilterModel>key}" text="{oFilterModel>key}"/>
+												</tokens>
+												<customData>
+													<core:CustomData key="supplier" value="supplier"/>
+												</customData>
+											</MultiInput>
+										</fb:control>
+									</fb:FilterItem>
+					<!--				<fb:FilterItem name="E" label="{i18n>price}">
+										<fb:control>
+											<Select change="onSelectChange" forceSelection="true" items="{ path: '/ProductSuppliers' }">
+												<core:Item key="{key}" text="{name}"/>
+											</Select>
+										</fb:control>
+									</fb:FilterItem>-->
+								</fb:filterItems>
+							</fb:FilterBar>
+						</f:content>
+					</f:DynamicPageHeader>
+				</f:header>
+				<!-- DynamicPage Content -->
+				<f:content>
+					<Table class="posBlueTbl" inset="false" items="{ path: 'listModel>/items' }" mode="MultiSelect">
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="{i18n>productID}"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="{i18n>productDescription}"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="{i18n>supplier}"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="{i18n>eanNumber}"/>
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="{i18n>category}"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem vAlign="Middle" press="onMaterialMasterListPress" type="Navigation">
+								<cells>
+									<Text text="{listModel>productID}"/>
+									<Text text="{listModel>productDescription}"/>
+									<Text text="{listModel>supplier}-{listModel>sname}"/>
+									<Text text="{listModel>eanNumber}"/>
+									<Text text="{listModel>category}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</f:content>
+				<!-- DynamicPage Footer -->
+				<f:footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button type="Accept" text="Accept"/>
+						<Button type="Reject" text="Reject"/>
+					</OverflowToolbar>
+				</f:footer>
+			</f:DynamicPage>
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,25 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" height="100%">
+	<OverflowToolbar>
+		<HBox>
+					<Text text="Store No. : " class="sapUiSmallMarginBegin"/>
+					<Text text="{settingModel>/plant}" class="sapUiTinyMarginBegin"/>
+				</HBox> 
+				<HBox>
+					<Text text="Store Name :" class="sapUiSmallMarginBegin"/>
+					<Text text="{settingModel>/plantname}" class="sapUiTinyMarginBegin"/>
+				</HBox>
+				<HBox>
+					<Text text="POS ID : " class="sapUiSmallMarginBegin"/>
+					<Text text="{settingModel>/posid}" class="sapUiTinyMarginBegin" id="idPOSValue"/>
+				</HBox>
+				<HBox>
+					<Text text="Last Recept No. : " class="sapUiSmallMarginBegin"/>
+					<Text text="{incrementModel>/vbeln}" class="sapUiTinyMarginBegin"/>
+				</HBox>
+				<HBox>
+					<Text text="Recept No. : " class="sapUiSmallMarginBegin"/>
+					<Text text="{incrementModel>/next_vbeln}" class="sapUiTinyMarginBegin"/>
+				</HBox>
+		<ToolbarSpacer/>
+	</OverflowToolbar>
+</core:FragmentDefinition>

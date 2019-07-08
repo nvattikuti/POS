@@ -1,0 +1,310 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" controllerName="PosClient.controller.MaterialDetail" displayBlock="true" xmlns:m="sap.m"
+	xmlns="sap.uxap" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core">
+	<m:Page showHeader="false">
+		<m:subHeader >
+			<m:Toolbar >
+				<m:Bar >
+					<m:contentLeft>
+						<m:Button icon="sap-icon://nav-back" press="onBackMaterialMaster"/>
+						<!--<m:Title text="{i18n>materialDetail}"/> -->
+						<m:Title text="{materialBasicModel>/matnr}/{materialBasicModel>/maktx_l}"/>
+					</m:contentLeft>
+					<m:contentMiddle>
+						<!--<Title text="{i18n>warehouse}" class="lastRefreshedText toolbarbottamdesign warehouseFont" />-->
+						<mvc:XMLView viewName="PosClient.view.HeaderActions"/>
+					</m:contentMiddle>
+				</m:Bar>
+			</m:Toolbar>
+		</m:subHeader>
+		<ObjectPageLayout enableLazyLoading="false" alwaysShowContentHeader="false">
+			<headerContent>
+				<!--<m:ObjectAttribute title="" text="This example explains the rules for the rendering of sections"/>-->
+			</headerContent>
+			<sections>
+				<ObjectPageSection >
+					<subSections>
+						<ObjectPageSubSection title="{i18n>basicData}">
+							<blocks>
+								<f:SimpleForm maxContainerCols="3" editable="true" layout="ResponsiveGridLayout" labelSpanL="6" labelSpanM="6" emptySpanL="0" emptySpanM="0"
+									columnsL="2" columnsM="2">
+									<f:content>
+										<core:Title text=""/>
+										<!--<m:Label text="{i18n>materialNumber}"/>-->
+										<!--<m:Text text="{materialBasicModel>/matnr}"/>-->
+										<!--<m:Label text="{i18n>materialNumberLocal}"/>-->
+										<!--<m:Text text="{materialBasicModel>/maktx_l}"/>-->
+										<!--<m:Label text="{i18n>materialDescription}"/>-->
+										<!--<m:Text text="{materialBasicModel>/maktx_e}"/>-->
+										<!--<m:Label text="{i18n>storeID}"/>-->
+										<!--<m:Text text="{materialBasicModel>/werks}"/>-->
+										<!--<m:Label text="{i18n>Category}"/>-->
+										<!--<m:Text text="{materialBasicModel>/matkl}"/>-->
+										<!--<m:Label text="{i18n>createdOn}"/>-->
+										<!--<m:Text text="{materialBasicModel>/ersda}"/>-->
+										<!--<core:Title text=""/>-->
+										<!--<m:Label text="{i18n>dateOfLastChange}"/>-->
+										<!--<m:Text text="{materialBasicModel>/laeda}"/>-->
+										<m:Label text="{i18n>ShortTextforSalesOrder}"/>
+										<m:Text text="{materialBasicModel>/arktx_l}"/>
+										<m:Label text="{i18n>baseUnitofMeasure}"/>
+										<m:Text text="{materialBasicModel>/meins}"/>
+										<m:Label text="{i18n>internationalarticlenumber}"/>
+										<m:Text text="{materialBasicModel>/barum}"/>
+										<m:Label text="{i18n>SupplierNumber}"/>
+										<m:Text text="{materialBasicModel>/lifnr}"/>
+										<m:Label text="{i18n>SupplierName}"/>
+										<m:Text text="{materialBasicModel>/lfname}"/>
+										<core:Title text=""/>
+										<m:Label text="{i18n>manufacturerPartNumber}"/>
+										<m:Text text="{materialBasicModel>/venmat}"/>
+										<m:Label text="{i18n>netcontents}"/>
+										<m:Text text="{materialBasicModel>/secumc}/{materialBasicModel>/secdum}"/>
+										<!--<m:Label text="{i18n>contentUnit}"/>-->
+										<!--<m:Text text="{materialBasicModel>/secdum}"/>-->
+										<m:Label text="{i18n>netWeight}"/>
+										<m:Text text="{materialBasicModel>/ntgew}/{materialBasicModel>/gewei}"/>
+										<!--<m:Label text="{i18n>weightUnit}"/>-->
+										<!--<m:Text text="{materialBasicModel>/gewei}"/>-->
+										<m:Label text="{i18n>volume}"/>
+										<m:Text text="{materialBasicModel>/volum}/{materialBasicModel>/voleh}"/>
+									</f:content>
+								</f:SimpleForm>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+				<ObjectPageSection >
+					<subSections>
+						<ObjectPageSubSection title="{i18n>storeData}">
+							<blocks>
+								<m:Table class="posBlueTbl" inset="false" items="{ path: 'materialStoreModel>/items' }">
+									<m:columns>
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>materialNumber}"/>-->
+										<!--</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>materialNumberLocal}"/>-->
+										<!--</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>materialDescription}"/>-->
+										<!--</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>storeID}"/>
+										</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>Category}"/>
+										</m:Column>-->
+										
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>availableQuantity}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>amountinlocalcurrency}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>currencyKey}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>lastPurchasePrice}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>lastInventotyCountDate}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>lastInventoryDifferenceQTY}"/>
+										</m:Column>
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>createdOn}"/>-->
+										<!--</m:Column>-->
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>dateOfLastChange}"/>
+										</m:Column>
+									</m:columns>
+									<m:items>
+										<m:ColumnListItem vAlign="Middle" press="onMaterialMasterListPress">
+											<m:cells>
+												<!--<m:Text text="{materialStoreModel>matnr}"/>-->
+												<!--<m:Text text="{materialBasicModel>/maktx_l}"/>-->
+												<!--<m:Text text="{materialBasicModel>/maktx_e}"/>-->
+												<!--<m:Text text="{materialStoreModel>werks}"/>-->
+												<!--<m:Text text="{materialStoreModel>matkl}"/>-->
+												
+												<m:Text text="{materialStoreModel>menge}"/>
+												<m:Text text="{materialStoreModel>disnt}"/>
+												<m:Text text="{materialStoreModel>waers}"/>
+												<m:Text text="{materialStoreModel>lpupr}"/>
+												<m:Text text="{materialStoreModel>invdt}"/>
+												<m:Text text="{materialStoreModel>linqt}"/>
+												<!--<m:Text text="{materialStoreModel>ersda}"/>-->
+												<m:Text text="{materialStoreModel>laeda}"/>
+											</m:cells>
+										</m:ColumnListItem>
+									</m:items>
+								</m:Table>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+				<ObjectPageSection >
+					<subSections>
+						<ObjectPageSubSection title="{i18n>priceData}">
+							<blocks>
+								<m:Table class="posBlueTbl" inset="false" items="{ path: 'materialPriceModel>/items' }">
+									<m:columns>
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>materialNumber}"/>-->
+										<!--</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>materialNumberLocal}"/>-->
+										<!--</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>materialDescription}"/>-->
+										<!--</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>storeID}"/>
+										</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>Category}"/>-->
+										<!--</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>createdOn}"/>-->
+										<!--</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>dateOfLastChange}"/>-->
+										<!--</m:Column>-->
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>conditionType}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>customerNumber}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>salesUnit}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>conditionAmountorPercentage}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>conditionunitcurrencyorPercentage}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>conditionPricingUnit}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>conditionUnit}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>ValidFrom}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>ValidTo}"/>
+										</m:Column>
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>dateOfLastChange}"/>
+										</m:Column>
+									</m:columns>
+									<m:items>
+										<m:ColumnListItem vAlign="Middle" press="onMaterialMasterListPress">
+											<m:cells>
+												<!--<m:Text text="{materialPriceModel>matnr}"/>-->
+												<!--<m:Text text="{materialPriceModel>maktx_l}"/>-->
+												<!--<m:Text text="{materialPriceModel>maktx_e}"/>-->
+												<!--<m:Text text="{materialPriceModel>werks}"/>-->
+												<!--<m:Text text="{materialPriceModel>matkl}"/>-->
+												<!--<m:Text text="{materialPriceModel>ersda}"/>-->
+												<!--<m:Text text="{materialPriceModel>laeda}"/>-->
+												<m:Text text="{materialPriceModel>kschl}"/>
+												<m:Text text="{materialPriceModel>kunnr}"/>
+												<m:Text text="{materialPriceModel>vrkme}"/>
+												<m:Text text="{materialPriceModel>kbetr}"/>
+												<m:Text text="{materialPriceModel>konwa}"/>
+												<m:Text text="{materialPriceModel>kpein}"/>
+												<m:Text text="{materialPriceModel>kmein}"/>
+												<m:Text text="{materialPriceModel>datab}"/>
+												<m:Text text="{materialPriceModel>datbi}"/>
+												<m:Text text="{materialPriceModel>laeda}"/>
+											</m:cells>
+										</m:ColumnListItem>
+									</m:items>
+								</m:Table>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+				<ObjectPageSection >
+					<subSections>
+						<ObjectPageSubSection title="{i18n>measurementData}">
+							<blocks>
+								<m:Table class="posBlueTbl" inset="false" items="{ path: 'materialUnitModel>/items' }">
+									<m:columns>
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>materialNumber}"/>-->
+										<!--</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>materialNumberLocal}"/>-->
+										<!--</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>materialDescription}"/>-->
+										<!--</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>storeID}"/>
+										</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>Category}"/>-->
+										<!--</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>createdOn}"/>-->
+										<!--</m:Column>-->
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>internationalarticlenumber}"/>
+										</m:Column>
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>unit}"/>-->
+										<!--</m:Column>-->
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>coversion}"/>
+										</m:Column>
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>numeratorForConversion}"/>-->
+										<!--</m:Column>-->
+										<!--<m:Column minScreenWidth="Tablet" demandPopin="true">-->
+										<!--	<m:Text text="{i18n>denominatorForConversion}"/>-->
+										<!--</m:Column>-->
+										<m:Column minScreenWidth="Tablet" demandPopin="true">
+											<m:Text text="{i18n>dateOfLastChange}"/>
+										</m:Column>
+									</m:columns>
+									<m:items>
+										<m:ColumnListItem vAlign="Middle" press="onMaterialMasterListPress">
+											<m:cells>
+												<!--<m:Text text="{materialUnitModel>matnr}"/>-->
+												<!--<m:Text text="{materialUnitModel>maktx_l}"/>-->
+												<!--<m:Text text="{materialUnitModel>maktx_e}"/>-->
+												<!--<m:Text text="{materialUnitModel>werks}"/>-->
+												<!--<m:Text text="{materialUnitModel>matkl}"/>-->
+												<!--<m:Text text="{materialUnitModel>ersda}"/>-->
+												<m:Text text="{materialUnitModel>barum}"/>
+												<m:Text text="{materialUnitModel>divid}{materialUnitModel>meins}  = {materialUnitModel>multi}{materialBasicModel>/meins}"/>
+												<!--<m:Text text="{materialUnitModel>meins}"/>-->
+												<!--<m:Text text="{materialUnitModel>multi}"/>-->
+												<!--<m:Text text="{materialUnitModel>divid}"/>-->
+												<m:Text text="{materialUnitModel>laeda}"/>
+											</m:cells>
+										</m:ColumnListItem>
+									</m:items>
+								</m:Table>
+							</blocks>
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+			</sections>
+		</ObjectPageLayout>
+		<!--<m:footer>-->
+		<!--	<m:Toolbar>-->
+		<!--		<m:ToolbarSpacer></m:ToolbarSpacer>-->
+		<!--		<m:Button text="Save"/>-->
+		<!--		<m:Button text="Reset" press="onResetEmp"/>-->
+		<!--	</m:Toolbar>-->
+		<!--</m:footer>-->
+	</m:Page>
+</mvc:View>

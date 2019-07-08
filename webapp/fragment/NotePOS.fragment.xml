@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<Title text="{i18n>editNote}" level="H3" titleStyle="H3" />
+		<TextArea
+			width="100%"
+		/>
+		<HBox>
+			<Button text="{i18n>save}" press="onNotePOSsave" />
+				<Button text="{i18n>cancel}" press="onNotePOScancel" class="sapUiSmallMarginBegin"/>
+		</HBox>
+	</VBox>
+</core:FragmentDefinition>
