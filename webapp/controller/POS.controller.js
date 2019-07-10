@@ -1224,6 +1224,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				var posTableModel = this.getView().getModel("posTableModel");
 				var selectedModel = this.getView().getModel("selectedModel");
 				var customerShipModel = this.getView().getModel("customerShipModel");
+				var sele = this.getView().byId("idInvoice").getSelected();
 				var date = new Date();
 				var year = date.getFullYear();
 				var month = date.getMonth() + 1;
@@ -1640,7 +1641,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				var scopeExtend = this;
 				var finalFiscalStatus;
 // 	Code for Test Purpose Only
-//fiscalStatusUrl = {};
+if (sele==true) (
+	this.onPrintForm()
+	);
+fiscalStatusUrl = {};
 if (fiscalStatusUrl.length > 0) {
 				$.ajax({
 					type: "POST",
@@ -1774,6 +1778,7 @@ if (fiscalStatusUrl.length > 0) {
 											// incrementModel.setProperty("/posnr", posnr + 10);
 //											sap.ui.getCore().byId("__button13").setVisible(true);
 											MessageToast.show("Fiscal Receipt Printed");
+//											this.onPrintForm();
 //											this.getView().getModel().refresh();
 											//											window.location.reload();
 										},
@@ -2075,8 +2080,8 @@ if (fiscalStatusUrl.length > 0) {
 				//			if (custcreateModel.getData().next_partner==null) {
 				var store = settingModel.getData().plant;
 				var posid = settingModel.getData().posid;
-				var selectedModel = me.getOwnerComponent().getModel("selectedModel");
-				var selCus = selectedModel.getData().selectedCustomerNumber
+				var selectedModel = this.getOwnerComponent().getModel("selectedModel");
+				var selCus = selectedModel.getData().selectedCustomerNumber;
 				var arrayOfInv = [];
 				posid = posid.replace(/^0+/, '');
 				posid.trim();

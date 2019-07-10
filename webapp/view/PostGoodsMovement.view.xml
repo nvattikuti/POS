@@ -1,0 +1,270 @@
+<mvc:View controllerName="PosClient.controller.PostGoodsMovement"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:t="sap.ui.table" xmlns:core="sap.ui.core"
+	xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:c="sap.ui.core" xmlns:l="sap.ui.layout" height="100%">
+	<Page showHeader="false" class="launchpadPage materialListPage">
+		<subHeader >
+			<Toolbar >
+				<Bar >
+					<contentLeft>
+						<Button icon="sap-icon://nav-back" press="onBackLaunchpad"/>
+						<Title text="{i18n>GoodsMovementTitle}"/>
+					</contentLeft>
+					<contentMiddle>
+						<!--<Title text="{i18n>warehouse}" class="lastRefreshedText toolbarbottamdesign warehouseFont" />-->
+						<mvc:XMLView viewName="PosClient.view.HeaderActions"/>
+					</contentMiddle>
+					<contentRight>
+						<!--<mvc:XMLView viewName="PosClient.view.LanguageBox"/>-->
+					</contentRight>
+				</Bar>
+			</Toolbar>
+		</subHeader>
+		<content>
+			<SplitContainer 
+				id="SplitCntr" 
+				mode="StretchCompressMode"
+				initialDetail="Items"				 
+				initialMaster="Headers">
+				<detailPages>
+					<Page id="Items">
+						<customHeader>
+							<Bar>
+								<contentLeft>
+									<Button 
+										text="{i18n>Back}" 
+										type="Emphasized"
+										icon="sap-icon://nav-back" 
+										iconFirst="true"		
+										press="onPressItemsBack" 
+										class="sapUiHideOnDesktop"/>									
+								</contentLeft>								
+								<contentMiddle>
+									<Button
+										icon="sap-icon://add"
+										tooltip="{i18n>add}" 
+										enabled="{= ${/document/docstatus} === 'V' ? true : false}"										
+										press="onItemAdd"/>								
+								</contentMiddle>								
+								<contentRight>
+									<Button 
+										text="{i18n>Save}" 
+										type="Emphasized"
+										icon="sap-icon://save" 
+										iconFirst="true"		
+										enabled="{= ${/document/docstatus} === 'V' ? true : false}"	
+										press="onSaveDocument"/>																			
+								</contentRight>		
+							</Bar>
+						</customHeader>
+						<content>
+							<Panel width="auto" class="sapUiResponsiveMargin">
+								<headerToolbar>
+								</headerToolbar>
+								<content>
+									<l:Grid defaultSpan="L6 M6 S12">
+										<l:content>
+											<DatePicker
+												id="DP1"
+												value="{path: '/document/budat_mkpf', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}" 
+												valueFormat="DD-MM-YYYY"
+												placeholder="Enter document date ..."
+												enabled="{= ${/document/docstatus} === 'V' ? true : false}"
+												change="onDocumentChange"
+												class="sapUiSmallMargins"/>										    
+											<ComboBox
+										    	id="MovementType"
+										    	placeholder="{i18n>MovementType}"
+										    	class="sapUiSmallMargins"
+												showSecondaryValues= "true"
+												filterSecondaryValues= "true"						
+												selectedKey="{/document/bwart}"												
+												selectionChange="onDocumentChange"
+												enabled="{= ${/document/docstatus} === 'V' ? true : false}"
+												items="{
+													path: '/MovementTypes',
+													sorter: { path: 'bwart' }
+												}">
+												<c:ListItem key="{bwart}" text="{Text}" additionalText="{bwart}"/>
+											</ComboBox>
+											<Input
+												value="{path: '/document/xblnr_mkpf'}"
+												maxLength="16"
+												class="sapUiSmallMargins"
+												type="Text"
+												enabled="false"
+												placeholder="Enter reference ..."/>
+											<ComboBox
+										    	id="DocumentType"
+										    	placeholder="{i18n>DocumentType}"
+										    	class="sapUiSmallMargins"
+												showSecondaryValues= "true"
+												filterSecondaryValues= "true"						
+												selectedKey="{/docstatus}"												
+												selectionChange="onDocumentChange"
+												enabled="{= ${/document/docstatus} === 'V' ? true : false}"
+												items="{
+													path: '/DocumentTypes',
+													sorter: { path: 'docstatus' }
+												}">
+												<c:ListItem key="{docstatus}" text="{Text}" additionalText="{docstatus}"/>
+											</ComboBox>											
+						 				</l:content>
+						 			</l:Grid>						 								
+								</content>								
+							</Panel>
+							<t:Table
+								id="ItemsTbl"
+								selectionMode="Single"
+								selectionBehavior="RowOnly"
+								setBusy="true"
+								mode="Delete"								
+								delete="onDeleteItem">															
+								<t:columns>									
+									<t:Column
+										width="auto"
+										hAlign="Begin"
+										name="Material"										
+										autoResizable="true">
+										<Label text="{i18n>ItemsTblmatnr}" />
+										<t:template>
+											<l:VerticalLayout>
+												<l:content>
+													<Text
+														text="{path: 'matnr'}"
+														wrapping="false"
+														class="bold"
+														tooltip="{matnr}" />
+													<Text
+														text="{path: 'maktx'}"
+														wrapping="true"
+														tooltip="{maktx}" />
+												</l:content>
+											</l:VerticalLayout>
+										</t:template>
+									</t:Column>
+									<t:Column
+										width="15%"
+										hAlign="Begin"
+										name="QuantityMax"										
+										autoResizable="true">
+										<Label text="{i18n>ItemsTblmengeMax}" />
+										<t:template>
+											<Text
+												text="{path: 'mengeMax'}"
+												wrapping="true"												
+												tooltip="Max value" />
+										</t:template>
+									</t:Column>
+									<t:Column
+										width="15%"
+										hAlign="Begin"
+										name="Quantity"										
+										autoResizable="true">
+										<Label text="{i18n>ItemsTblmenge}" />
+										<t:template>
+											<Input
+												value="{path: 'menge',
+													type: 'sap.ui.model.type.Integer',
+													constraints: {
+											            minimum: 1											            
+											        }
+										        }"
+												type="Number"
+												class="tableInputBold"
+												validationError="onChangeItemQuantityValidationError"
+												validationSuccess="onChangeItemQuantityValidationSuccess"											
+												liveChange="onChangeItemQuantity"
+												valueLiveUpdate="true"
+												editable="{= ${/document/docstatus} === 'V' ? true : false}"/>
+										</t:template>
+									</t:Column>
+									<t:Column
+										width="8%"
+										hAlign="Begin"
+										name="Unit"										
+										autoResizable="true">
+										<Label text="{i18n>ItemsTblmeins}" />
+										<t:template>
+											<Text
+												text="{path: 'meins'}"
+												wrapping="false"
+												tooltip="{meins}" />
+										</t:template>
+									</t:Column>
+									<t:Column
+										width="4em"
+										hAlign="Center"
+										name="ItemDeleteBtn"																				
+										autoResizable="true">										
+										<t:template>
+											<Button
+											    class="sapMLIBIconDel"
+												icon="sap-icon://sys-cancel"
+												enabled="{= ${/document/docstatus} === 'V' ? true : false}"
+												press="onDeleteItem" />
+										</t:template>
+									</t:Column>
+								</t:columns>
+							</t:Table>
+						</content>
+					</Page>
+				</detailPages>
+				<masterPages>
+					<Page 
+						id="Headers" 
+						width="50%">
+						<customHeader>
+							<Bar>
+								<contentLeft>
+									<Button 
+										text="{i18n>new}" 
+										type="Emphasized"
+										icon="sap-icon://create" 
+										iconFirst="true"		
+										press="onPressNew"/>									
+								</contentLeft>								
+								<contentMiddle>
+																										
+								</contentMiddle>								
+								<contentRight>									
+									<Button 
+										text="{i18n>open}" 
+										type="Emphasized"
+										icon="sap-icon://open" 
+										iconFirst="true"		
+										press="onPressOpen"/>	
+								</contentRight>		
+							</Bar>
+						</customHeader>
+						<content>
+							<List 
+								headerText="Documents" 
+								mode="Delete" 
+								items="{path: '/documents',
+									sorter: { path: 'xblnr_mkpf' }
+								}"
+								delete="onDeleteDocument">
+								<CustomListItem>
+									<HBox>
+										<core:Icon size="2rem" src="sap-icon://request" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" />
+										<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+											<Link text="{xblnr_mkpf}" target="" press="onSelectDocument"/>
+											<Label text="{path: 'budat_mkpf', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium', strictParsing: true}}"/>
+										</VBox>
+									</HBox>
+								</CustomListItem>
+							</List>
+						</content>
+					</Page>
+				</masterPages>				
+			</SplitContainer>	
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer />			
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>
+

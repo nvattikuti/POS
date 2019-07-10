@@ -209,6 +209,12 @@
 					"viewLevel": 2,
 					"viewType": "XML"
 				},
+				"PostGoodsMovement": {
+					"viewName": "PostGoodsMovement",
+					"viewId": "PostGoodsMovement",
+					"viewLevel": 3,
+					"viewType": "XML"
+				},
 				"pos": {
 					"viewName": "POS",
 					"viewId": "pos",
@@ -290,6 +296,10 @@
 				"pattern": "purchasing",
 				"name": "purchasing",
 				"target": ["purchasing"]
+			}, {
+				"pattern": "PostGoodsMovement",
+				"name": "PostGoodsMovement",
+				"target": ["PostGoodsMovement"]
 			}, {
 				"pattern": "pos",
 				"name": "pos",

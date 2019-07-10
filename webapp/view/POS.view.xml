@@ -112,10 +112,12 @@
 					<Button class="sapUiSmallMarginBegin" text="{i18n>edit}" icon="sap-icon://edit" visible="{posBtnVisibleModel>/cusEdit}"/>
 					<Label class="sapUiSmallMarginBegin" text="{i18n>vatID}"/>
 					<Label class="sapUiTinyMarginBegin sapUiTinyMarginEnd" text="{selectedModel>/selectedVatID}"/>
-					<ToggleButton icon="sap-icon://receipt" text="{i18n>note}" class="sapUiSmallMarginBegin smallTxt docRightBtn customerButtonSpacing"
-						press="onNotePress"></ToggleButton>
-					<ToggleButton icon="sap-icon://flight" text="{i18n>ship}" class="sapUiTinyMarginBegin smallTxt docRightBtn" press="onShipPress"></ToggleButton>
-					<Button icon="sap-icon://shipping-status" text="{i18n>homeDelivery}" class="sapUiTinyMarginBegin actionBtn docRightBtn finalPaymentRightBtn"></Button>
+					<CheckBox text="{i18n>invoice}" selected="false" id="idInvoice"/>
+					<CheckBox id="Receipt" name="Receipt" text="Receipt" selected="true" />
+					<!--<ToggleButton icon="sap-icon://receipt" text="{i18n>note}" class="sapUiSmallMarginBegin smallTxt docRightBtn customerButtonSpacing"-->
+					<!--	press="onNotePress"></ToggleButton>-->
+					<!--<ToggleButton icon="sap-icon://flight" text="{i18n>ship}" class="sapUiTinyMarginBegin smallTxt docRightBtn" press="onShipPress"></ToggleButton>-->
+					<!--<Button icon="sap-icon://shipping-status" text="{i18n>homeDelivery}" class="sapUiTinyMarginBegin actionBtn docRightBtn finalPaymentRightBtn"></Button>-->
 					<!--<ToggleButton class="sapUiSmallMarginBegin" text="{i18n>note}" visible="{posBtnVisibleModel>/cusNote}" press="onNotePress"/>-->
 					<!--<ToggleButton class="sapUiSmallMarginBegin" text="{i18n>ship}" visible="{posBtnVisibleModel>/cusShip}" press="onShipPress"/>-->
 				</Toolbar>

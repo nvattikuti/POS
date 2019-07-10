@@ -60,9 +60,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			},
 			
 			onPostGoodsMovement : function(){
-			    var oBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
-				var postGoodsMovementURL = oBundle.getText("postGoodsMovementURL");
-			    sap.m.URLHelper.redirect(postGoodsMovementURL, true);
+			    //var oBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+				//var postGoodsMovementURL = oBundle.getText("postGoodsMovementURL");
+			    //sap.m.URLHelper.redirect(postGoodsMovementURL, true);
+				this.getOwnerComponent().getRouter().navTo("PostGoodsMovement");
 			},
 			
 			onBackLaunchpad: function() {
