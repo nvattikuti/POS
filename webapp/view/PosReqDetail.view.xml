@@ -1,0 +1,126 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:semantic="sap.f.semantic"
+	xmlns:f="sap.f" controllerName="PosClient.controller.PosReqDetail" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="{i18n>PosRequest}">
+				<subHeader>
+					<Toolbar>
+						<Bar>
+							<contentMiddle>
+								<!--
+<Title text="{i18n>warehouse}" class="lastRefreshedText toolbarbottamdesign warehouseFont" />
+-->
+								<mvc:XMLView viewName="PosClient.view.HeaderActions"/>
+							</contentMiddle>
+							<contentRight>
+								<!--
+<mvc:XMLView viewName="PosClient.view.LanguageBox"/>
+-->
+							</contentRight>
+						</Bar>
+					</Toolbar>
+				</subHeader>
+				<content>
+					<f:DynamicPage headerExpanded="{/headerExpanded}">
+						<!--  DynamicPage Title  -->
+						<f:title>
+							<f:DynamicPageTitle>
+								<!-- 								<f:heading>
+									<vm:VariantManagement standardItemText="Create POS Request"/>
+								</f:heading> -->
+								<f:actions>
+									<ToolbarSpacer/>
+								</f:actions>
+							</f:DynamicPageTitle>
+						</f:title>
+						<f:header>
+							<f:DynamicPageHeader pinnable="true">
+								<f:content>
+									<HBox width="100%" id="__hbox0" class="headerActions">
+										<items>
+											<Label text="{i18n>ExtDocNumber}"/>
+											<Input id="Xblnr" maxLength="30"></Input>
+											<Label text="{i18n>Plant}"/>
+											<Input id="Werks" editable="false"/>
+											<Label text="{i18n>Operator}"/>
+											<Input id="UserId" editable="false"/>
+										</items>
+									</HBox>
+								</f:content>
+							</f:DynamicPageHeader>
+						</f:header>
+						<f:content>
+							<Table id="TableCreateId" class="posBlueTbl" inset="false" mode="Delete" delete="OnPOSDelete" items="{posReqModel>/}">
+								<headerToolbar>
+									<Toolbar design="Transparent" height="3rem">
+										<ToolbarSpacer/>
+										<ToolbarSpacer/>
+										<Button icon="sap-icon://add" press="OnAdd"/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="{i18n>PosItem}"/>
+									</Column>
+									<!--<Column minScreenWidth="Tablet" demandPopin="true">-->
+									<!--	<Text text="{i18n>ExtDocNumber}"/>-->
+									<!--</Column>-->
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="{i18n>productID}"/>
+									</Column>
+									<Column minScreenWidth="Tablet" visible="false" demandPopin="true">
+										<Text text="{i18n>Description}"/>
+									</Column>
+									<!--<Column minScreenWidth="Tablet" demandPopin="true">-->
+									<!--	<Text text="{i18n>PostingDate}"/>-->
+									<!--</Column>-->
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="{i18n>Quantity}"/>
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="{i18n>UoM}"/>
+									</Column>
+									<!--<Column minScreenWidth="Tablet" demandPopin="true">-->
+									<!--	<Text text="{i18n>Plant}"/>-->
+									<!--</Column>-->
+								</columns>
+								<items>
+									<ColumnListItem vAlign="Middle">
+										<cells>
+											<Text text="{posReqModel>bnfpo}"></Text>
+											<!--<Text text="{posReqModel>xblnr_mkpf}"/>-->
+											<Input id="MaktxId" value="{posReqModel>maktx}" description="{posReqModel>maktx_l}" editable="{posReqModel>Editable}"
+												suggestionItems="{ path: 'listModel>/items'}" suggestionItemSelected="OnSugestionItemSelected" showSuggestion="true" showValueHelp="true"
+												valueHelpRequest="onProducIdValueHelp">
+												<suggestionItems>
+													<core:ListItem text="{listModel>productID} {listModel>productDescription}" key="{listModel>productID}"/>
+													<!--<core:Item text="{listModel>productID} {listModel>productDescription}" key="{listModel>productID}"/>-->
+												</suggestionItems>
+											</Input>
+											<Text visible="false" id="MatnrId" text="{posReqModel>matnr}"></Text>
+											<Input value="{posReqModel>menge}" editable="{posReqModel>Editable}" type="Number"/>
+											<Input id="MeinsId" editable="false" value="{posReqModel>meins}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</f:content>
+						<!--  DynamicPage Footer  -->
+					</f:DynamicPage>
+				</content>
+				<footer>
+					<Bar>
+						<contentLeft>
+							<core:Fragment fragmentName="PosClient.fragment.PosReqFooterBar" type="XML"/>
+						</contentLeft>
+						<contentRight>
+							<Button id="CancelBtnId" type="Reject" press="OnCancel" text="{i18n>Cancel}"/>
+							<Button id="SaveBtnId" type="Accept" press="OnSave" text="{i18n>Save}"/>
+							<Button id="DraftBtnId" type="Emphasized" press="OnDraftSave" text="{i18n>SaveDraft}"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

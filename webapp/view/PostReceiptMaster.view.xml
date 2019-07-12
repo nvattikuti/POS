@@ -1,0 +1,23 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="PosClient.controller.PostReceiptMaster">
+	<semantic:MasterPage id="page" title="{masterView>/title}" navButtonPress="onBackLaunchpad" showNavButton="true" showFooter="false">
+		<semantic:content>
+			<SearchField liveChange="onLiveChange" width="100%" search="onSearch"/>
+			<List items="{PostReceiptModel>/items}">
+				<items>
+						<ObjectListItem title="Delivery {PostReceiptModel>vbeln}" type="Active" press="onListItemPress" number="{PostReceiptModel>erdat}" numberUnit="">
+						<firstStatus>
+							<ObjectStatus text="{PostReceiptModel>wbstk}" state="{ path: 'Status', formatter: 'sap.m.sample.ObjectListItem.Formatter.status' }"/>
+						</firstStatus>
+						<attributes>
+							<ObjectAttribute text="Delivery Date {PostReceiptModel>budat}"/>
+						</attributes>
+						<attributes>
+							<ObjectAttribute text="Vendor {PostReceiptModel>lifnr}"/>
+						</attributes>						
+					</ObjectListItem>
+				</items>
+			</List>
+		</semantic:content>
+	</semantic:MasterPage>
+</mvc:View>

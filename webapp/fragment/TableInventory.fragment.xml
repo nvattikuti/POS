@@ -1,32 +1,64 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
-	<Table  inset="false" items="{ path: 'inventoryModel>/' }">
-							<columns>
-								<Column >
-									<Text text="{i18n>materialNumber}"/>
-								</Column>
-								<Column minScreenWidth="Tablet" demandPopin="true">
-									<Text text="{i18n>storeID}"/>
-								</Column>
-								<Column minScreenWidth="Desktop" demandPopin="true">
-									<Text text="{i18n>quantity}"/>
-								</Column>
-								<Column minScreenWidth="Desktop" demandPopin="true">
-									<Text text="{i18n>unit}"/>
-								</Column>
-								<Column hAlign="End">
-									<Text text="{i18n>lastCountDate}"/>
-								</Column>
-							</columns>
-							<items>
-								<ColumnListItem>
-									<cells>
-										<Text text="{inventoryModel>matnr}"/>
-										<Text text="{inventoryModel>werks}"/>
-										<Text text="{inventoryModel>menge}"/>
-										<Text text="{inventoryModel>meins}"/>
-										<Text text="{inventoryModel>invdt}"/>
-									</cells>
-								</ColumnListItem>
-							</items>
-						</Table>
+	<Table inset="false" items="{ path: 'inventoryModel>/' }">
+		<columns>
+			<Column>
+				<Text text="{i18n>materialNumber}"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>materialDescription}"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>Supplier}"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>SupplierName}"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>MaterialCategory}"/>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<Text text="{i18n>storeID}"/>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true">
+				<Text text="{i18n>quantity}"/>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true">
+				<Text text="{i18n>unit}"/>
+			</Column>
+			<Column hAlign="End">
+				<Text text="{i18n>MinQuantity}"/>
+			</Column>
+			<Column hAlign="End">
+				<Text text="{i18n>SafetyStock}"/>
+			</Column>
+			<Column hAlign="End">
+				<Text text="{i18n>MaxQuantity}"/>
+			</Column>
+			<Column hAlign="End">
+				<Text text="{i18n>MaterialStatus}"/>
+			</Column>
+			<Column hAlign="End">
+				<Text text="{i18n>lastCountDate}"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{inventoryModel>matnr}"/>
+					<Text text="{inventoryModel>maktx_l}"/>
+					<Text text="{inventoryModel>lifnr}"/>
+					<Text text="{inventoryModel>lfname}"/>
+					<Text text="{inventoryModel>matkl}"/>
+					<Text text="{inventoryModel>werks}"/>
+					<Text text="{inventoryModel>menge}"/>
+					<Text text="{inventoryModel>meins}"/>
+					<Text text="{inventoryModel>eislo}"/>
+					<Text text="{inventoryModel>eisbe}"/>
+					<Text text="{inventoryModel>mabst}"/>
+					<Text text="{inventoryModel>mmsta}"/>
+					<Text text="{inventoryModel>invdt}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
 </core:FragmentDefinition>

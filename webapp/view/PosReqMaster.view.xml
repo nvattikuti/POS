@@ -1,0 +1,21 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="PosClient.controller.PosReqMaster">
+	<semantic:MasterPage id="page" title="{i18n>PosDrafts}" navButtonPress="onBackLaunchpad" 
+	showNavButton="true" showFooter="true">
+		<semantic:content>
+			<SearchField liveChange="onLiveChange" width="100%" search="onSearch"/>
+			<List items="{posHdrModel>/}">
+				<items>
+					<ObjectListItem title="{i18n>ExtDocNumber}:{posHdrModel>xblnr_mkpf}" type="Active" press="onListItemPress" intro="{posHdrModel>budat_mkpf}">
+						<attributes>
+							<ObjectAttribute text="{posHdrModel>werks}"/>
+						</attributes>
+					</ObjectListItem>
+				</items>
+			</List>
+		</semantic:content>
+		<semantic:customFooterContent>
+			<Button icon="sap-icon://Add" text="Create POS" press="OnAdd"/>
+		</semantic:customFooterContent>
+	</semantic:MasterPage>
+</mvc:View>

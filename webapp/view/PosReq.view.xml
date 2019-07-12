@@ -1,0 +1,3 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="PosClient.controller.PosReq" displayBlock="true">
+<SplitApp id="idSplitCreatePOSControl"/>
+</mvc:View>

@@ -151,6 +151,28 @@
 														</m:TileContent>
 													</m:tileContent>
 												</m:GenericTile>
+												<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>posrequest}" subheader="{i18n>create}"
+													press="onCreatePOS">
+													<TileContent>
+														<ImageContent src="sap-icon://create"/>
+													</TileContent>
+												</GenericTile>
+												<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>outboundrequest}" subheader="{i18n>create}"
+													press="onCreateOutbound">
+													<TileContent>
+														<ImageContent src="sap-icon://create"/>
+													</TileContent>
+												</GenericTile>
+												<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>inbound}" press="onInbound">
+													<TileContent>
+														<ImageContent src="sap-icon://create"/>
+													</TileContent>
+												</GenericTile>
+												<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout" header="{i18n>PostReceipt}" press="onPostReceipt">
+													<TileContent>
+														<ImageContent src="sap-icon://create"/>
+													</TileContent>
+												</GenericTile>												
 											</content>
 										</Panel>
 									</content>

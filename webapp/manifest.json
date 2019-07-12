@@ -226,103 +226,278 @@
 					"viewName": "PrintForm",
 					"viewId": "printForm",
 					"viewLevel": 2
+				},
+				"PosReq": {
+					"viewType": "XML",
+					"viewName": "PosReq"
+				},
+				"PosReqMaster": {
+					"viewType": "XML",
+					"viewName": "PosReqMaster",
+					"viewLevel": 1,
+					"viewId": "PosReqMaster",
+					"controlAggregation": "masterPages",
+					"controlId": "idSplitCreatePOSControl",
+					"parent": "PosReq"
+				},
+				"PosReqDetail": {
+					"viewType": "XML",
+					"viewName": "PosReqDetail",
+					"viewId": "PosReqDetail",
+					"viewLevel": 2,
+					"controlId": "idSplitCreatePOSControl",
+					"controlAggregation": "detailPages",
+					"parent": "PosReq"
+				},
+				"OutboundRequest": {
+					"viewType": "XML",
+					"viewName": "OutboundRequest"
+				},
+				"OutboundReqMaster": {
+					"viewType": "XML",
+					"viewName": "OutboundReqMaster",
+					"viewLevel": 1,
+					"viewId": "OutboundReqMaster",
+					"controlAggregation": "masterPages",
+					"controlId": "idSplitOutboundControl",
+					"parent": "OutboundRequest"
+				},
+				"OutboundReqDetail": {
+					"viewType": "XML",
+					"viewName": "OutboundReqDetail",
+					"viewId": "OutboundReqDetail",
+					"viewLevel": 2,
+					"controlId": "idSplitOutboundControl",
+					"controlAggregation": "detailPages",
+					"parent": "OutboundRequest"
+				},
+				"inbound": {
+					"viewName": "Inbound",
+					"viewType": "XML"
+				},
+				"InboundMaster": {
+					"viewName": "InboundMaster",
+					"viewLevel": 1,
+					"viewId": "InboundMaster",
+					"controlAggregation": "masterPages",
+					"controlId": "idSplitAppInboundControl",
+					"parent": "inbound",
+					"viewType": "XML"
+				},
+				"InboundDetail": {
+					"viewName": "InboundDetail",
+					"viewId": "InboundDetail",
+					"viewLevel": 2,
+					"controlId": "idSplitAppInboundControl",
+					"controlAggregation": "detailPages",
+					"parent": "inbound",
+					"viewType": "XML"
+				},
+				"PostReceipt": {
+					"viewName": "PostReceipt",
+					"viewType": "XML"
+				},
+				"PostReceiptMaster": {
+					"viewName": "PostReceiptMaster",
+					"viewLevel": 1,
+					"viewId": "PostReceiptMaster",
+					"controlAggregation": "masterPages",
+					"controlId": "idSplitAppPostReceiptControl",
+					"parent": "PostReceipt",
+					"viewType": "XML"
+				},
+				"PostReceiptDetail": {
+					"viewName": "PostReceiptDetail",
+					"viewId": "PostReceiptDetail",
+					"viewLevel": 2,
+					"controlId": "idSplitAppPostReceiptControl",
+					"controlAggregation": "detailPages",
+					"parent": "PostReceipt",
+					"viewType": "XML"
 				}
 			},
 			"routes": [{
-				"pattern": "",
-				"name": "login",
-				"target": ["login"]
-			}, {
-				"pattern": "launchPad",
-				"name": "launchPad",
-				"target": ["launchPad"]
-			}, {
-				"pattern": "materialMaster",
-				"name": "materialMaster",
-				"target": ["materialMaster"]
-			}, {
-				"pattern": "materialDetail/{MaterialNumber}",
-				"name": "materialDetail",
-				"target": ["materialDetail"]
-			}, {
-				"pattern": "pointOfSales",
-				"name": "pointOfSales",
-				"target": ["pointOfSales"]
-			}, {
-				"pattern": "settingsDashboard",
-				"name": "settingsDashboard",
-				"target": ["settingsDashboard"]
-			}, {
-				"pattern": "settingsView",
-				"name": "settingsView",
-				"target": ["settingsView"]
-			}, {
-				"pattern": "customerMaster",
-				"name": "customerMaster",
-				"target": ["customerMaster"]
-			}, {
-				"pattern": "customerBasicData/{CustomerNumber}",
-				"name": "customerBasicData",
-				"target": ["customerBasicData"]
-			}, {
-				"pattern": "inventory",
-				"name": "inventory",
-				"target": ["inventory"]
-			}, {
-				"pattern": "sales",
-				"name": "sales",
-				"target": ["salesDetail", "salesMaster"]
-			}, {
-				"pattern": "salesMaster",
-				"name": "salesMaster",
-				"target": ["salesDetail", "salesMaster"]
-			}, {
-				"pattern": "salesDetail/{vbeln}/{shipto}",
-				"name": "salesDetail",
-				"target": ["salesMaster", "salesDetail"]
-			}, {
-				"pattern": "return",
-				"name": "return",
-				"target": ["returnDetail", "returnMaster"]
-			}, {
-				"pattern": "returnMaster",
-				"name": "returnMaster",
-				"target": ["returnDetail", "returnMaster"]
-			}, {
-				"pattern": "returnDetail/{vbeln}/{shipto}",
-				"name": "returnDetail",
-				"target": ["returnMaster", "returnDetail"]
-			}, {
-				"pattern": "purchasing",
-				"name": "purchasing",
-				"target": ["purchasing"]
-			}, {
-				"pattern": "PostGoodsMovement",
-				"name": "PostGoodsMovement",
-				"target": ["PostGoodsMovement"]
-			}, {
-				"pattern": "pos",
-				"name": "pos",
-				"target": ["pos"]
-			}, {
-				"name": "PrintForm",
-				"pattern": "printForm",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["PrintForm"]
-			}, {
-				"name": "invoicesMaster",
-				"pattern": "invoicesMaster",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["invoicesMaster", "invoicesDetail"]
-			}, {
-				"name": "invoicesDetail",
-				"pattern": "invoicesMaster/{vbeln}/{shipto}",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["invoicesMaster", "invoicesDetail"]
-			}]
+					"pattern": "",
+					"name": "login",
+					"target": ["login"]
+				}, {
+					"pattern": "launchPad",
+					"name": "launchPad",
+					"target": ["launchPad"]
+				}, {
+					"pattern": "materialMaster",
+					"name": "materialMaster",
+					"target": ["materialMaster"]
+				}, {
+					"pattern": "materialDetail/{MaterialNumber}",
+					"name": "materialDetail",
+					"target": ["materialDetail"]
+				}, {
+					"pattern": "pointOfSales",
+					"name": "pointOfSales",
+					"target": ["pointOfSales"]
+				}, {
+					"pattern": "settingsDashboard",
+					"name": "settingsDashboard",
+					"target": ["settingsDashboard"]
+				}, {
+					"pattern": "settingsView",
+					"name": "settingsView",
+					"target": ["settingsView"]
+				}, {
+					"pattern": "customerMaster",
+					"name": "customerMaster",
+					"target": ["customerMaster"]
+				}, {
+					"pattern": "customerBasicData/{CustomerNumber}",
+					"name": "customerBasicData",
+					"target": ["customerBasicData"]
+				}, {
+					"pattern": "inventory",
+					"name": "inventory",
+					"target": ["inventory"]
+				}, {
+					"pattern": "sales",
+					"name": "sales",
+					"target": ["salesDetail", "salesMaster"]
+				}, {
+					"pattern": "salesMaster",
+					"name": "salesMaster",
+					"target": ["salesDetail", "salesMaster"]
+				}, {
+					"pattern": "salesDetail/{vbeln}/{shipto}",
+					"name": "salesDetail",
+					"target": ["salesMaster", "salesDetail"]
+				}, {
+					"pattern": "return",
+					"name": "return",
+					"target": ["returnDetail", "returnMaster"]
+				}, {
+					"pattern": "returnMaster",
+					"name": "returnMaster",
+					"target": ["returnDetail", "returnMaster"]
+				}, {
+					"pattern": "returnDetail/{vbeln}/{shipto}",
+					"name": "returnDetail",
+					"target": ["returnMaster", "returnDetail"]
+				}, {
+					"pattern": "purchasing",
+					"name": "purchasing",
+					"target": ["purchasing"]
+				}, {
+					"pattern": "PostGoodsMovement",
+					"name": "PostGoodsMovement",
+					"target": ["PostGoodsMovement"]
+				}, {
+					"pattern": "pos",
+					"name": "pos",
+					"target": ["pos"]
+				}, {
+					"name": "PrintForm",
+					"pattern": "printForm",
+					"titleTarget": "",
+					"greedy": false,
+					"target": ["PrintForm"]
+				}, {
+					"name": "invoicesMaster",
+					"pattern": "invoicesMaster",
+					"titleTarget": "",
+					"greedy": false,
+					"target": ["invoicesMaster", "invoicesDetail"]
+				}, {
+					"name": "invoicesDetail",
+					"pattern": "invoicesMaster/{vbeln}/{shipto}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": ["invoicesMaster", "invoicesDetail"]
+				},
+
+				{
+					"pattern": "PosReq",
+					"name": "PosReq",
+					"target": [
+						"PosReqDetail",
+						"PosReqMaster"
+					]
+				}, {
+					"pattern": "PosReqMaster",
+					"name": "PosReqMaster",
+					"target": [
+						"PosReqDetail",
+						"PosReqMaster"
+					]
+				}, {
+					"pattern": "PosReqDetail/{banfn}",
+					"name": "PosReqDetail",
+					"target": [
+						"PosReqDetail",
+						"PosReqMaster"
+					]
+				}, {
+					"pattern": "OutboundRequest",
+					"name": "OutboundRequest",
+					"target": [
+						"OutboundReqDetail",
+						"OutboundReqMaster"
+					]
+				}, {
+					"pattern": "OutboundReqMaster",
+					"name": "OutboundReqMaster",
+					"target": [
+						"OutboundReqDetail",
+						"OutboundReqMaster"
+					]
+				}, {
+					"pattern": "OutboundReqDetail/{xblnr_mkpf}",
+					"name": "OutboundReqDetail",
+					"target": [
+						"OutboundReqDetail",
+						"OutboundReqMaster"
+					]
+				}, {
+					"pattern": "inbound",
+					"name": "inbound",
+					"target": [
+						"InboundDetail",
+						"InboundMaster"
+					]
+				}, {
+					"pattern": "InboundMaster",
+					"name": "InboundMaster",
+					"target": [
+						"InboundDetail",
+						"InboundMaster"
+					]
+				}, {
+					"pattern": "InboundDetail/{vbeln}",
+					"name": "InboundDetail",
+					"target": [
+						"InboundMaster",
+						"InboundDetail"
+					]
+				}, {
+					"pattern": "PostReceipt",
+					"name": "PostReceipt",
+					"target": [
+						"PostReceiptDetail",
+						"PostReceiptMaster"
+					]
+				}, {
+					"pattern": "PostReceiptMaster",
+					"name": "PostReceiptMaster",
+					"target": [
+						"PostReceiptDetail",
+						"PostReceiptMaster"
+					]
+				}, {
+					"pattern": "PostReceiptDetail/{vbeln}",
+					"name": "PostReceiptDetail",
+					"target": [
+						"PostReceiptMaster",
+						"PostReceiptDetail"
+					]
+				}
+			]
 		}
 	}
 }

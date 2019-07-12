@@ -1,0 +1,115 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:semantic="sap.m.semantic" xmlns:l="sap.ui.layout" displayBlock="true"
+	xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="PosClient.controller.InboundDetail">
+	<App>
+		<pages>
+			<Page>
+				<content>
+			<ObjectListItem title="Order {inboundModel>/vbeln}" type="Active" numberUnit="{inboundModel>erdat}">
+				<firstStatus>
+					<ObjectStatus text="Vendor: {inboundModel>/lifnr}"
+						state="{ path: 'wbstk', formatter: 'sap.m.sample.ObjectListItem.Formatter.status' }"/>
+				</firstStatus>
+				<attributes>
+					<!--<ObjectAttribute text="Document Date: {inboundModel>/erdat}"/>-->
+					<ObjectAttribute text="Delivery Type: {inboundModel>/lfart}"/>
+					<ObjectAttribute text="Delivery Date: {inboundModel>/budat}"/>
+					<!--<ObjectAttribute text="Shipping Point: {inboundModel>/vstel}"/>-->
+				</attributes>
+			</ObjectListItem>
+			<IconTabBar id="idIconTabBarMulti" expanded="{device>/isNoPhone}" class="sapUiResponsiveContentPadding">
+				<items>
+<!--					<IconTabFilter icon="sap-icon://shipping-status">-->
+<!--						<f:SimpleForm id="SimpleFormDisplay354" editable="false" layout="ResponsiveGridLayout" title="{i18n>shippingAddress}" labelSpanXL="3"-->
+<!--							labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"-->
+<!--							columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">-->
+<!--							<f:content>-->
+<!--								<Label text="{i18n>name}"/>-->
+<!--								 <Text text="{salesShipToModel>/name_org}"/> -->
+<!--								<Text text="{inboundModel>/ship_name}"/>-->
+<!--								<Label text="{i18n>street}"/>-->
+<!--								 <Text text="{salesShipToModel>/street}"/> -->
+<!--								<Text text="{inboundModel>/ship_stree}"/>-->
+<!--								<Label text="{i18n>zipCodeCity}"/>-->
+								
+<!--<Text text="{salesShipToModel>/post_code} / {salesShipToModel>/city}"/>-->
+
+<!--								<Text text="{inboundModel>/ship_post} / {inboundModel>/ship_city}"/>-->
+<!--								<Label text="{i18n>country}"/>-->
+<!--								 <Text text="{salesShipToModel>/country}"/> -->
+<!--								<Text text="{inboundModel>/ship_country}"/>-->
+<!--							</f:content>-->
+<!--						</f:SimpleForm>-->
+<!--					</IconTabFilter>-->
+					<IconTabFilter icon="sap-icon://person-placeholder">
+						<f:SimpleForm editable="true" layout="ResponsiveGridLayout" title="{i18n>processorInformation}" >
+							<f:content>
+								<core:Title text="{i18n>details}"/>
+								<Label text="{i18n>name}"/>
+								<Text text="{storeUserModel>/fname} {storeUserModel>/lname}"/>
+								<Label text="{i18n>employeeID}"/>
+								<Text text="{storeUserModel>/werks}"/>
+								<Label text="{i18n>jobTitle}"/>
+								<Text text="{storeUserModel>/job}"/>
+								<Label text="{i18n>phone}"/>
+								<Text text="{storeUserModel>/mob_number}"/>
+							</f:content>
+						</f:SimpleForm>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+			<Toolbar>
+				<Title text="{i18n>lineItems}" titleStyle="H4" class="sapUiSmallMarginBegin"/>
+			</Toolbar>
+			<Table class="posBlueTbl" inset="false" items="{ path: 'inboundDetailModel>/items' }">
+				<columns>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>DeliveryItem}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>product}"/>
+					</Column>	
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>Description}"/>
+					</Column>						
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>quantity}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>unit}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>ReferencePO}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="true">
+						<Text text="{i18n>RefPOItem}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem vAlign="Middle">
+						<cells>
+							<Text text="{inboundDetailModel>posnr}"/>
+							<Text text="{inboundDetailModel>matnr}"/>
+							<Text text="{inboundDetailModel>arktx}"/>
+							<Input value="{inboundDetailModel>lfimg}"/>
+							<Text text="{inboundDetailModel>meins}"/>
+							<Text text="{inboundDetailModel>vgbel}"/>
+							<Text text="{inboundDetailModel>vgpos}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			</content>
+				<footer>
+					<Bar>
+						<contentLeft>
+							<core:Fragment fragmentName="PosClient.fragment.PosReqFooterBar" type="XML"/>
+						</contentLeft>
+						<contentRight>
+							<Button  type="Accept" press="OnSave" text="{i18n>Save}"/>
+						</contentRight>
+					</Bar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

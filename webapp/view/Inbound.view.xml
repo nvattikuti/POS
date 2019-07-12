@@ -1,0 +1,3 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="PosClient.controller.Inbound" displayBlock="true">
+<SplitApp id="idSplitAppInboundControl"/>
+</mvc:View>

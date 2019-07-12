@@ -1,7 +1,7 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel"
-], function(Controller, JSONModel) {
+], function (Controller, JSONModel) {
 	"use strict";
 
 	return Controller.extend("PosClient.controller.LaunchPad", {
@@ -11,78 +11,77 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf PosClient.view.LaunchPad
 		 */
-			onInit: function() {
-		this.getOwnerComponent().getRouter().attachRouteMatched(this._onRouteMatched, this);
-			},
-			
-			_onRouteMatched: function(oEvent) {
-				if (oEvent.getParameter("name") === "launchPad") {
-					
-					var user = oEvent.getParameters().arguments.user;
-					this.user = user;
-					
-					var materialData = {};
+		onInit: function () {
+			this.getOwnerComponent().getRouter().attachRouteMatched(this._onRouteMatched, this);
+		},
+
+		_onRouteMatched: function (oEvent) {
+			if (oEvent.getParameter("name") === "launchPad") {
+
+				var user = oEvent.getParameters().arguments.user;
+				this.user = user;
+
+				var materialData = {};
 				var me = this;
-				
+
 				var oBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
 				var materialListUrl = oBundle.getText("materialListUrl");
 				//var materialListUrl = "https://api.myjson.com/bins/yl0y8";
 				var todaySalesURL = oBundle.getText("todaySalesURL");
-				
+
 				var todaySalesData = {};
-					
+
 				jQuery.ajax({
 					type: 'GET',
 					url: todaySalesURL,
-					success: function(data) {
+					success: function (data) {
 						todaySalesData = data[0];
 						var todaySalesModel = new JSONModel(todaySalesData);
 						me.getView().setModel(todaySalesModel, "todaySalesModel");
 						var todaySalesModel = me.getView().getModel("todaySalesModel");
-						todaySalesModel.setProperty("/time", (todaySalesModel.getData().time).slice(0,8));
-						 
+						todaySalesModel.setProperty("/time", (todaySalesModel.getData().time).slice(0, 8));
+
 					}
 				});
-				
+
 				jQuery.ajax({
 					type: 'GET',
 					url: materialListUrl,
-					success: function(data) {
+					success: function (data) {
 						materialData.items = data;
 						var totalValue = data.length;
 						//var listModel = new JSONModel(jQuery.sap.getModulePath("PosClient.model", materialData));
-				
+
 						var totalModel = new JSONModel(materialData);
 						me.getView().setModel(totalModel, "totalModel");
 						totalModel.setProperty("/totalValue", totalValue);
 					}
 				});
-				
-				
+
 				var customerListUrl = oBundle.getText("customerListUrl");
 				//var materialListUrl = "https://api.myjson.com/bins/yl0y8";
 				var customerData = {};
 				jQuery.ajax({
 					type: 'GET',
 					url: customerListUrl,
-					success: function(data) {
+					success: function (data) {
 						customerData.items = data;
 						var totalCustomerValue = data.length;
 						//var listModel = new JSONModel(jQuery.sap.getModulePath("PosClient.model", materialData));
-				
+
 						var totalCustomerModel = new JSONModel(customerData);
 						me.getView().setModel(totalCustomerModel, "totalCustomerModel");
 						totalCustomerModel.setProperty("/totalCustomerValue", totalCustomerValue);
 					}
 				});
-				}
-			},
-			
-			onUserNamePress: function (oEvent) {
+			}
+		},
+
+		onUserNamePress: function (oEvent) {
 			var oPopover = new sap.m.Popover({
 				showHeader: false,
 				placement: sap.m.PlacementType.Bottom,
-				content:[
+				content: [
 					new sap.m.Button({
 						text: 'Feedback',
 						type: sap.m.ButtonType.Transparent
@@ -127,48 +126,61 @@ sap.ui.define([
 		//	onExit: function() {
 		//
 		//	}
-		
-		onBackLogin : function(){
-				this.getOwnerComponent().getRouter().navTo("login");
-			},
-			
-			onMaterialMaster : function(){
-				this.getOwnerComponent().getRouter().navTo("materialMaster");
-			},
-			
-			onPointOfSales : function(){
-				this.getOwnerComponent().getRouter().navTo("pos");
-			},
-			
-			onSettingsDashboard : function() {
-				this.getOwnerComponent().getRouter().navTo("settingsView");
-			},
-			
-			onCustomerMaster: function(){
-				this.getOwnerComponent().getRouter().navTo("customerMaster");	
-			},
-			
-			onInventory : function(){
-				this.getOwnerComponent().getRouter().navTo("inventory");	
-			},
-			
-			onSales : function(){
-				this.getOwnerComponent().getRouter().navTo("salesMaster");	
-			},
 
-			onInv: function(){
-				this.getOwnerComponent().getRouter().navTo("invoicesMaster");	
-			},
-			
-			onReturn : function(){
-				this.getOwnerComponent().getRouter().navTo("returnMaster");	
-			},
-			
-			onPurchasing : function(){
-			    this.getOwnerComponent().getRouter().navTo("purchasing");
-			},
-			
-			handlePressConfiguration: function(oEvent) {
+		onBackLogin: function () {
+			this.getOwnerComponent().getRouter().navTo("login");
+		},
+
+		onMaterialMaster: function () {
+			this.getOwnerComponent().getRouter().navTo("materialMaster");
+		},
+
+		onPointOfSales: function () {
+			this.getOwnerComponent().getRouter().navTo("pos");
+		},
+
+		onSettingsDashboard: function () {
+			this.getOwnerComponent().getRouter().navTo("settingsView");
+		},
+
+		onCustomerMaster: function () {
+			this.getOwnerComponent().getRouter().navTo("customerMaster");
+		},
+
+		onInventory: function () {
+			this.getOwnerComponent().getRouter().navTo("inventory");
+		},
+
+		onSales: function () {
+			this.getOwnerComponent().getRouter().navTo("salesMaster");
+		},
+
+		onInv: function () {
+			this.getOwnerComponent().getRouter().navTo("invoicesMaster");
+		},
+
+		onReturn: function () {
+			this.getOwnerComponent().getRouter().navTo("returnMaster");
+		},
+
+		onPurchasing: function () {
+			this.getOwnerComponent().getRouter().navTo("purchasing");
+		},
+		// Begin of change by Nageswar		
+		onCreatePOS: function () {
+			this.getOwnerComponent().getRouter().navTo("PosReq");
+		},
+		onCreateOutbound: function () {
+			this.getOwnerComponent().getRouter().navTo("OutboundRequest");
+		},
+		onInbound: function () {
+			this.getOwnerComponent().getRouter().navTo("inbound");
+		},
+		onPostReceipt: function () {
+			this.getOwnerComponent().getRouter().navTo("PostReceipt");
+		},
+		// End of change by Nageswar						
+		handlePressConfiguration: function (oEvent) {
 			var viewId = this.getView().getId();
 			var toolPage = sap.ui.getCore().byId(viewId + "--lPtoolPage");
 			var sideExpanded = toolPage.getSideExpanded();
